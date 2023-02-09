@@ -1,11 +1,26 @@
 import { readFile } from "fs/promises";
 import { Plugin } from "vite";
-import { PACKAGE_ROOT, DEFAULT_HTML_PATH } from "../constants";
+import { DEFAULT_HTML_PATH, ENTRY_DEFAULT_PATH } from "../constants";
 
 export function pluginIndexHtml(): Plugin {
   return {
     name: "vigor: index-html",
     apply: "serve",
+    transformIndexHtml(html) {
+      return {
+        html,
+        tags: [
+          {
+            tag: "script",
+            attrs: {
+              type: "module",
+              src: `/@fs/${ENTRY_DEFAULT_PATH}`,
+            },
+            injectTo: "body",
+          },
+        ],
+      };
+    },
     configureServer(server) {
       return () => {
         server.middlewares.use(async (req, res, next) => {
