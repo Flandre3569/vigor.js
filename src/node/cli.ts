@@ -1,11 +1,15 @@
 import { cac } from "cac";
 import { createDevServer } from "./dev";
+import { build } from "./build";
+
 const path = require("path");
 
 const version = require("../../package.json").version;
 
 const cli = cac("vigor").version(version).help();
 
+// terminal 指令集
+// 开启服务指令
 cli
   .command("[root]", "start dev server")
   .alias("dev")
@@ -16,8 +20,11 @@ cli
     server.printUrls();
   });
 
-cli.command("build [root]", "build for production").action(async (root: string) => {
-  console.log("build", root);
+// 构建打包指令
+cli.command("build [root]", "build in production").action(async (root: string) => {
+  try {
+    await build(root);
+  } catch (error) {}
 });
 
 cli.parse();
