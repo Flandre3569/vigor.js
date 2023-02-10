@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 import { Plugin } from "vite";
-import { DEFAULT_HTML_PATH, ENTRY_DEFAULT_PATH } from "../constants";
+import { DEFAULT_HTML_PATH, CLIENT_ENTRY_PATH } from "../constants";
 
 export function pluginIndexHtml(): Plugin {
   return {
@@ -14,7 +14,7 @@ export function pluginIndexHtml(): Plugin {
             tag: "script",
             attrs: {
               type: "module",
-              src: `/@fs/${ENTRY_DEFAULT_PATH}`,
+              src: `/@fs/${CLIENT_ENTRY_PATH}`,
             },
             injectTo: "body",
           },

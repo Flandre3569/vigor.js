@@ -24,7 +24,9 @@ cli
 cli.command("build [root]", "build in production").action(async (root: string) => {
   try {
     await build(root);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 cli.parse();
