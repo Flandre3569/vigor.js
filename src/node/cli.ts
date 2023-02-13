@@ -1,9 +1,7 @@
 import { cac } from "cac";
 import { createDevServer } from "./dev";
 import { build } from "./build";
-
-const path = require("path");
-
+import { resolve } from "path";
 const version = require("../../package.json").version;
 
 const cli = cac("vigor").version(version).help();
@@ -14,7 +12,7 @@ cli
   .command("[root]", "start dev server")
   .alias("dev")
   .action(async (root: string) => {
-    root = root ? path.resolve(root) : process.cwd();
+    root = root ? resolve(root) : process.cwd();
     const server = await createDevServer(root);
     await server.listen();
     server.printUrls();

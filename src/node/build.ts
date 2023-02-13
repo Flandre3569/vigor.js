@@ -4,8 +4,10 @@ import { join } from "path";
 import { PACKAGE_ROOT } from "./constants/index";
 
 import type { RollupOutput } from "rollup";
-import * as fs from "fs-extra";
+import fs from "fs-extra";
 import pluginReact from "@vitejs/plugin-react";
+
+import { pathToFileURL } from "url";
 
 // 依靠vite的打包工具
 export async function bundle(root: string) {
@@ -89,6 +91,6 @@ export async function build(root: string = process.cwd()) {
   // 引入 server-entry 模块,也就是引入刚才打包生成的ssr产物
   const serverEntryPath = `${PACKAGE_ROOT}/docs/.temp/ssr-entry.js`;
   // 服务端渲染，产出HTML
-  const { render } = require(serverEntryPath);
+  const { render } = await import(pathToFileURL(serverEntryPath).toString()); // pathToFileURL是为了兼容windows的url格式
   await renderPage(render, root, clientBundle);
 }

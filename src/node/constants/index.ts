@@ -1,7 +1,7 @@
 import { join } from "path";
 
 // 包根地址
-export const PACKAGE_ROOT = join(__dirname, "..", "..", "..");
+export const PACKAGE_ROOT = join(__dirname, "..");
 
 // html模板地址
 export const DEFAULT_HTML_PATH = join(PACKAGE_ROOT, "template.html");
