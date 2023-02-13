@@ -7,6 +7,7 @@ import type { RollupOutput } from "rollup";
 import * as fs from "fs-extra";
 import pluginReact from "@vitejs/plugin-react";
 
+// 依靠vite的打包工具
 export async function bundle(root: string) {
   // 使用vite进行打包，将重复逻辑进行抽离
   const resolveViteConfig = (isServer: boolean): InlineConfig => ({
@@ -51,11 +52,13 @@ export async function bundle(root: string) {
   }
 }
 
+// 渲染页面
 export async function renderPage(render: () => string, root: string, clientBundle: RollupOutput) {
   // 拿到将html渲染为字符串的结果
   const appHtml = render();
-
+  const clientChunk = clientBundle.output.find((chunk) => chunk.type === "chunk" && chunk.isEntry);
   // 拼接为真正的html页面
+  console.log("Rendering page in server side...");
   const html = `
     <!DOCTYPE html>
     <html lang="en">
@@ -67,6 +70,7 @@ export async function renderPage(render: () => string, root: string, clientBundl
     </head>
     <body>
       <div id="root">${appHtml}</div>
+      <script src="/${clientChunk.fileName}" type="module"></script>
     </body>
     </html>
   `.trim();
@@ -78,6 +82,7 @@ export async function renderPage(render: () => string, root: string, clientBundl
   await fs.remove(join(root, ".temp"));
 }
 
+// feature: SSG构建页面
 export async function build(root: string = process.cwd()) {
   // bundle => client + server
   const [clientBundle] = await bundle(root);
