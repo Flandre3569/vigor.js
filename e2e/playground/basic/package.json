@@ -1,0 +1,17 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vigor dev docs",
+    "build": "vigor build docs",
+    "preview": "vigor start docs"
+  },
+  "dependencies": {
+    "vigor": "../../.."
+  },
+  "author": "",
+  "license": "ISC"
+}
