@@ -81,7 +81,6 @@ export async function renderPage(render: () => string, root: string, clientBundl
 export async function build(root: string = process.cwd()) {
   // bundle => client + server
   const [clientBundle] = await bundle(root);
-  debugger;
   // 引入 server-entry 模块,也就是引入刚才打包生成的ssr产物
   const serverEntryPath = `${PACKAGE_ROOT}/docs/.temp/ssr-entry.js`;
   // 服务端渲染，产出HTML
