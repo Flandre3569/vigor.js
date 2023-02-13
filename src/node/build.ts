@@ -58,6 +58,7 @@ export async function bundle(root: string) {
 export async function renderPage(render: () => string, root: string, clientBundle: RollupOutput) {
   // 拿到将html渲染为字符串的结果
   const appHtml = render();
+  // 水合
   const clientChunk = clientBundle.output.find((chunk) => chunk.type === "chunk" && chunk.isEntry);
   // 拼接为真正的html页面
   console.log("Rendering page in server side...");
