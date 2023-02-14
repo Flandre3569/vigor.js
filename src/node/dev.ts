@@ -2,8 +2,14 @@ import { createServer as createViteDevServer } from "vite";
 import { pluginIndexHtml } from "./plugin/indexHtml";
 import pluginReact from "@vitejs/plugin-react";
 import { PACKAGE_ROOT } from "./constants/index";
+import { resolveConfig } from "./config";
 
 export async function createDevServer(root = process.cwd()) {
+  // 拿到配置文件的解析路径和文件经过解析后的内容
+  const config = await resolveConfig(root, "serve", "development");
+  console.log(config);
+
+  // vite服务器
   return createViteDevServer({
     root,
     plugins: [pluginIndexHtml(), pluginReact()],
