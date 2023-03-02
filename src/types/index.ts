@@ -7,14 +7,13 @@ export interface NavItemsConfig {
 }
 
 // 侧边栏每个子栏
-export interface SidebarItem {
-  text: string;
-  link: string;
-}
+export type SidebarItem =
+  | { text: string; link: string }
+  | { text: string; link?: string; items: SidebarItem[] };
 
 // 侧边栏组
 export interface SidebarGroup {
-  text: string;
+  text?: string;
   items: SidebarItem[];
 }
 
@@ -25,7 +24,8 @@ export interface SidebarConfig {
 
 // 页脚的配置
 export interface FooterConfig {
-  message: string;
+  message?: string;
+  copyright?: string;
 }
 
 // 主题配置
@@ -37,8 +37,8 @@ export interface ThemeConfig {
 
 // 用户配置
 export interface UserConfig {
-  title: string;
-  description: string;
-  themeConfig: ThemeConfig;
-  vite: ViteUserConfig;
+  title?: string;
+  description?: string;
+  themeConfig?: ThemeConfig;
+  vite?: ViteUserConfig;
 }

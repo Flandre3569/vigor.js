@@ -59,3 +59,7 @@ export async function resolveConfig(
   console.log(configPath);
   return userConfig;
 }
+
+export function defineConfig(config: UserConfig): UserConfig {
+  return config;
+}
