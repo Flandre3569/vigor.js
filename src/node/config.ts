@@ -5,6 +5,10 @@ import fs from "fs-extra";
 import { loadConfigFromFile } from "vite";
 import { UserConfig } from "../types/index";
 
+// 定义command和mode的类型
+type Command = "build" | "serve";
+type Mode = "development" | "production";
+
 // 拿到的文件类型 对象、promise和返回对象或promise的函数
 type RawConfig = UserConfig | Promise<UserConfig> | (() => UserConfig | Promise<UserConfig>);
 
@@ -20,12 +24,7 @@ function getUserConfig(root: string) {
   }
 }
 
-export async function resolveConfig(
-  // command和mode是vite的解析文件api需要的配置信息
-  root: string,
-  command: "serve" | "build",
-  mode: "production" | "development"
-) {
+async function resolveUserConfig(command: Command, mode: Mode, root: string) {
   // 1. 获取配置文件路径
   const configPath = getUserConfig(root);
   // 2. 解析配置文件
@@ -36,7 +35,6 @@ export async function resolveConfig(
     },
     configPath
   );
-
   if (res) {
     const { config: ordConfig = {} as RawConfig } = res;
     // rawConfig有三种形式
@@ -49,4 +47,15 @@ export async function resolveConfig(
   } else {
     return [configPath, {} as UserConfig] as const;
   }
+}
+
+export async function resolveConfig(
+  // command和mode是vite的解析文件api需要的配置信息
+  root: string,
+  command: "serve" | "build",
+  mode: "production" | "development"
+) {
+  const [configPath, userConfig] = await resolveUserConfig(command, mode, root);
+  console.log(configPath);
+  return userConfig;
 }
