@@ -3,6 +3,7 @@ import { pluginIndexHtml } from "./plugin/indexHtml";
 import pluginReact from "@vitejs/plugin-react";
 import { PACKAGE_ROOT } from "./constants/index";
 import { resolveConfig } from "./config";
+import { pluginConfig } from "./plugin/config";
 
 export async function createDevServer(root = process.cwd()) {
   // 拿到配置文件的解析路径和文件经过解析后的内容
@@ -12,7 +13,7 @@ export async function createDevServer(root = process.cwd()) {
   // vite服务器
   return createViteDevServer({
     root,
-    plugins: [pluginIndexHtml(), pluginReact()],
+    plugins: [pluginIndexHtml(), pluginReact(), pluginConfig(config)],
     // 配置e2e的服务器检索目录外的项目的合法性
     server: {
       fs: {
