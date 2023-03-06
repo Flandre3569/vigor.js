@@ -1,6 +1,7 @@
-import { createRoot } from "react-dom"
+import { createRoot } from "react-dom/client"
 import { App } from "./App";
 import siteData from "vigor:site-data";
+import {BrowserRouter} from "react-router-dom"
 
 function runderInBrowser() {
   console.log(siteData);
@@ -8,7 +9,11 @@ function runderInBrowser() {
   if (!containerEl) {
     throw new Error("#root element not found");
   }
-  createRoot(containerEl).render(<App />);
+  createRoot(containerEl).render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
 }
 
 runderInBrowser();

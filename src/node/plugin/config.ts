@@ -17,5 +17,16 @@ export function pluginConfig(config: SiteConfig): Plugin {
         return `export default ${JSON.stringify(config.siteData)}`;
       }
     },
+    // 一个学习的内容，本身未实现，比较复杂的一个逻辑。
+    // 钩子函数：当配置文件发生改变时，达到热更新的效果
+    // async handleHotUpdate(ctx) {
+    //   const customWatchedFiles = [config.configPath];
+    //   const include = (id: string) => customWatchedFiles.some((file) => id.includes(file));
+    //   if (include(ctx.file)) {
+    //     `\n${relative(config.root, ctx.file)} has changed, restarting server...`;
+    //     // 重启Dev Server的方案
+    //     // 手动调用dev.ts中的createServer方法
+    //   }
+    // },
   };
 }

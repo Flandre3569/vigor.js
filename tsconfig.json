@@ -6,6 +6,8 @@
     "rootDir": ".",
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "baseUrl": "src"
-  }
+    "baseUrl": "src",
+    "moduleResolution": "node",
+  },
+  "include": ["e2e/**/*.ts", "src/**/*.ts", "src/**/*.tsx"]
 }

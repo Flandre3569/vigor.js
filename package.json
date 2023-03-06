@@ -10,7 +10,6 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "prepare:e2e": "tsx scripts/e2e.ts"
-    
   },
   "bin": {
     "vigor": "bin/vigor.js"
@@ -29,6 +28,7 @@
     "@playwright/test": "1.26.1",
     "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.13.0",
+    "@types/react-dom": "^18.0.11",
     "execa": "5.1.1",
     "rollup": "^3.14.0",
     "tsup": "^6.6.2",
@@ -43,6 +43,7 @@
     "fs-extra": "^11.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "6.4.3",
     "serve": "^14.2.0",
     "vite": "^4.1.1"
   }
