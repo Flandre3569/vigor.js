@@ -1,3 +1,5 @@
+import { PACKAGE_ROOT } from "node/constants";
+import { join } from "path";
 import { SiteConfig } from "types/index";
 import { Plugin } from "vite";
 
@@ -16,6 +18,16 @@ export function pluginConfig(config: SiteConfig): Plugin {
       if (id === "\0" + SITE_DATA_ID) {
         return `export default ${JSON.stringify(config.siteData)}`;
       }
+    },
+    // 通过config钩子设置别名，此处设置的别名会自动与vite配置中的别名呼应
+    config() {
+      return {
+        resolve: {
+          alias: {
+            "@runtime": join(PACKAGE_ROOT, "src", "runtime", "index.ts"),
+          },
+        },
+      };
     },
     // 一个学习的内容，本身未实现，比较复杂的一个逻辑。
     // 钩子函数：当配置文件发生改变时，达到热更新的效果

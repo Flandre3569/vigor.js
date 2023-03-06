@@ -8,6 +8,9 @@
     "esModuleInterop": true,
     "baseUrl": "src",
     "moduleResolution": "node",
+    "paths": {
+      "@runtime": ["runtime/index.ts"]
+    },
   },
   "include": ["e2e/**/*.ts", "src/**/*.ts", "src/**/*.tsx"]
 }

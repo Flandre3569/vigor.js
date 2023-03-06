@@ -8,14 +8,20 @@ import fs from "fs-extra";
 import pluginReact from "@vitejs/plugin-react";
 
 import { pathToFileURL } from "url";
+import { SiteConfig } from "types";
+import { pluginConfig } from "./plugin/config";
 
 // 依靠vite的打包工具
-export async function bundle(root: string) {
+export async function bundle(root: string, config: SiteConfig) {
   // 使用vite进行打包，将重复逻辑进行抽离
   const resolveViteConfig = (isServer: boolean): InlineConfig => ({
     mode: "production",
     root,
-    plugins: [pluginReact()],
+    plugins: [pluginReact(), pluginConfig(config)],
+    // 将react-router-dom直接打包进ssr的产物中，不用再单独引入第三方包了
+    ssr: {
+      noExternal: ["react-router-dom"],
+    },
     build: {
       ssr: isServer,
       outDir: isServer ? ".temp" : "build",
@@ -86,9 +92,9 @@ export async function renderPage(render: () => string, root: string, clientBundl
 }
 
 // feature: SSG构建页面
-export async function build(root: string = process.cwd()) {
+export async function build(root: string = process.cwd(), config: SiteConfig) {
   // bundle => client + server
-  const [clientBundle] = await bundle(root);
+  const [clientBundle] = await bundle(root, config);
   // 引入 server-entry 模块,也就是引入刚才打包生成的ssr产物
   const serverEntryPath = `${PACKAGE_ROOT}/docs/.temp/ssr-entry.js`;
   // 服务端渲染，产出HTML
