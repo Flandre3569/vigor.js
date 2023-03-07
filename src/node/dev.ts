@@ -8,7 +8,6 @@ import { pluginConfig } from "./plugin/config";
 export async function createDevServer(root: string) {
   // 拿到配置文件的解析路径和文件经过解析后的内容
   const config = await resolveConfig(root, "serve", "development");
-  console.log(config.siteData);
 
   // vite服务器
   return createViteDevServer({
