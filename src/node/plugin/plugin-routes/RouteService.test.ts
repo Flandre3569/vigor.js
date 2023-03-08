@@ -16,11 +16,11 @@ describe("RouteService", async () => {
     expect(routeMeta).toMatchInlineSnapshot(`
       [
         {
-          "absolutePath": "TEST_DIR/a.md",
+          "absolutePath": "TEST_DIR/a.mdx",
           "routePath": "/a",
         },
         {
-          "absolutePath": "TEST_DIR/guide/index.md",
+          "absolutePath": "TEST_DIR/guide/index.mdx",
           "routePath": "/guide/",
         },
       ]
@@ -33,8 +33,8 @@ describe("RouteService", async () => {
     ).toMatchInlineSnapshot(`
       "
             import React from \\"react\\";
-            import Route0 from TEST_DIR/a.md
-      import Route1 from TEST_DIR/guide/index.md
+            import Route0 from TEST_DIR/a.mdx
+      import Route1 from TEST_DIR/guide/index.mdx
             
             export const routes = [
               { path: \\"/a\\", element: React.createElement(Route0) },{ path: \\"/guide/\\", element: React.createElement(Route1) }
