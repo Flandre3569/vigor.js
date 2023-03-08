@@ -51,18 +51,18 @@ export class RouteService {
   // 生成路由页面代码
   generateRoutesPath() {
     return `
-      import React from "react";
+      import React from 'react';
       ${this.#routeData
         .map((route, index) => {
-          return `import Route${index} from ${route.absolutePath}`;
+          return `import Route${index} from '${normalizePath(route.absolutePath)}'`;
         })
         .join("\n")}
       
       export const routes = [
         ${this.#routeData.map((route, index) => {
-          return `{ path: "${normalizePath(
+          return `{ path: '${normalizePath(
             route.routePath
-          )}", element: React.createElement(Route${index}) }`;
+          )}', element: React.createElement(Route${index}) }`;
         })}
       ]
     `;

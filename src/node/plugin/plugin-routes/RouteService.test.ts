@@ -32,12 +32,12 @@ describe("RouteService", async () => {
       routeService.generateRoutesPath().replaceAll(testDir, "TEST_DIR")
     ).toMatchInlineSnapshot(`
       "
-            import React from \\"react\\";
-            import Route0 from TEST_DIR/a.mdx
-      import Route1 from TEST_DIR/guide/index.mdx
+            import React from 'react';
+            import Route0 from 'TEST_DIR/a.mdx'
+      import Route1 from 'TEST_DIR/guide/index.mdx'
             
             export const routes = [
-              { path: \\"/a\\", element: React.createElement(Route0) },{ path: \\"/guide/\\", element: React.createElement(Route1) }
+              { path: '/a', element: React.createElement(Route0) },{ path: '/guide/', element: React.createElement(Route1) }
             ]
           "
     `);
