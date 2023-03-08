@@ -11,13 +11,16 @@ import { pathToFileURL } from "url";
 import { SiteConfig } from "types";
 import { pluginConfig } from "./plugin/config";
 
+import { createMdxPlugin } from "./plugin/plugin-mdx/index";
+import { pluginRoutes } from "./plugin/plugin-routes";
+
 // 依靠vite的打包工具
 export async function bundle(root: string, config: SiteConfig) {
   // 使用vite进行打包，将重复逻辑进行抽离
   const resolveViteConfig = (isServer: boolean): InlineConfig => ({
     mode: "production",
     root,
-    plugins: [pluginReact(), pluginConfig(config)],
+    plugins: [pluginReact(), pluginConfig(config), pluginRoutes({ root }), createMdxPlugin()],
     // 将react-router-dom直接打包进ssr的产物中，不用再单独引入第三方包了
     ssr: {
       noExternal: ["react-router-dom"],
