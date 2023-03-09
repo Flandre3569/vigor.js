@@ -33,8 +33,9 @@ describe("RouteService", async () => {
     ).toMatchInlineSnapshot(`
       "
             import React from 'react';
-            import Route0 from 'TEST_DIR/a.mdx'
-      import Route1 from 'TEST_DIR/guide/index.mdx'
+            import loadable from '@loadable/component';
+            const Route0 = loadable(() => import('TEST_DIR/a.mdx')); 
+      const Route1 = loadable(() => import('TEST_DIR/guide/index.mdx')); 
             
             export const routes = [
               { path: '/a', element: React.createElement(Route0) },{ path: '/guide/', element: React.createElement(Route1) }

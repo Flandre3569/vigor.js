@@ -52,9 +52,12 @@ export class RouteService {
   generateRoutesPath() {
     return `
       import React from 'react';
+      import loadable from '@loadable/component';
       ${this.#routeData
         .map((route, index) => {
-          return `import Route${index} from '${normalizePath(route.absolutePath)}'`;
+          return `const Route${index} = loadable(() => import('${normalizePath(
+            route.absolutePath
+          )}')); `;
         })
         .join("\n")}
       
