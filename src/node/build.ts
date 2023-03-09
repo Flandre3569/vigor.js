@@ -20,7 +20,12 @@ export async function bundle(root: string, config: SiteConfig) {
   const resolveViteConfig = (isServer: boolean): InlineConfig => ({
     mode: "production",
     root,
-    plugins: [pluginReact(), pluginConfig(config), pluginRoutes({ root }), createMdxPlugin()],
+    plugins: [
+      pluginReact(),
+      pluginConfig(config),
+      pluginRoutes({ root: config.root }),
+      createMdxPlugin(),
+    ],
     // 将react-router-dom直接打包进ssr的产物中，不用再单独引入第三方包了
     ssr: {
       noExternal: ["react-router-dom"],

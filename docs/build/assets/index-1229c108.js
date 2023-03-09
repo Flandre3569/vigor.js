@@ -1,0 +1,1 @@
+import{j as e}from"./client-entry-306c79d5.js";function o(n){const t=Object.assign({h1:"h1"},n.components);return e(t.h1,{children:"123123"})}function r(n={}){const{wrapper:t}=n.components||{};return t?e(t,Object.assign({},n,{children:e(o,n)})):o(n)}export{r as default};

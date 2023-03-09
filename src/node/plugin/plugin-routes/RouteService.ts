@@ -55,9 +55,13 @@ export class RouteService {
       import loadable from '@loadable/component';
       ${this.#routeData
         .map((route, index) => {
+          // 动态加载路由信息（按需加载）
           return `const Route${index} = loadable(() => import('${normalizePath(
             route.absolutePath
           )}')); `;
+
+          // 静态加载路由信息
+          // return `import Route${index} from '${normalizePath(route.absolutePath)}'`;
         })
         .join("\n")}
       

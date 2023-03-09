@@ -3,3 +3,9 @@ declare module "vigor:site-data" {
   const siteData: UserConfig;
   export default siteData;
 }
+
+declare module "vigor:routes" {
+  import { RouteObject } from "react-router-dom";
+  const routes: RouteObject[];
+  export { routes };
+}
