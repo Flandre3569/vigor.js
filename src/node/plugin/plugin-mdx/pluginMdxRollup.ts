@@ -10,6 +10,8 @@ import rehypePluginSlug from "rehype-slug";
 import remarkPluginFrontmatter from "remark-frontmatter";
 import remarkPluginMDXFrontmatter from "remark-mdx-frontmatter";
 
+import { preWrapperPlugin } from "./rehypePlugins/preWrapper";
+
 export function pluginMdxRollup() {
   return [
     pluginMdx({
@@ -33,6 +35,7 @@ export function pluginMdxRollup() {
             },
           },
         ],
+        preWrapperPlugin,
       ],
     }),
   ];
