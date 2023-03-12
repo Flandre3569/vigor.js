@@ -22,13 +22,14 @@ function _interopNamespaceDefault(e) {
 }
 const jsxRuntime__namespace = /* @__PURE__ */ _interopNamespaceDefault(jsxRuntime);
 const React__namespace = /* @__PURE__ */ _interopNamespaceDefault(React);
+const Fragment = jsxRuntime__namespace.Fragment;
 const jsx = jsxRuntime__namespace.jsx;
 const jsxs = jsxRuntime__namespace.jsxs;
 const siteData = { "title": "123", "description": "A SSG framework.", "themeConfig": {}, "vite": {} };
 const Route0 = loadable(() => Promise.resolve().then(() => require("./assets/b-d9d319e8.js")));
 const Route1 = loadable(() => Promise.resolve().then(() => require("./assets/a-265230d1.js")));
 const Route2 = loadable(() => Promise.resolve().then(() => require("./assets/index-b156d454.js")));
-const Route3 = loadable(() => Promise.resolve().then(() => require("./assets/index-c72029fe.js")));
+const Route3 = loadable(() => Promise.resolve().then(() => require("./assets/index-b2f1b61f.js")));
 const routes = [
   { path: "/b", element: React.createElement(Route0) },
   { path: "/guide/a", element: React.createElement(Route1) },
@@ -837,5 +838,7 @@ function render() {
     /* @__PURE__ */ jsx(StaticRouter, { location: "/guide", children: /* @__PURE__ */ jsx(App, {}) })
   );
 }
+exports.Fragment = Fragment;
 exports.jsx = jsx;
+exports.jsxs = jsxs;
 exports.render = render;

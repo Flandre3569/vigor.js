@@ -17,6 +17,9 @@ import { preWrapperPlugin } from "./rehypePlugins/preWrapper";
 import { shikiPlugin } from "./rehypePlugins/shiki";
 import shiki from "shiki";
 
+// TOC解析插件
+import { TOCPlugin } from "./remarkPlugins/toc";
+
 export async function pluginMdxRollup(): Promise<Plugin> {
   return pluginMdx({
     // 添加github的markdown标准-GFM语法
@@ -24,6 +27,7 @@ export async function pluginMdxRollup(): Promise<Plugin> {
       remarkGFM,
       remarkPluginFrontmatter,
       [remarkPluginMDXFrontmatter, { name: "frontmatter" }],
+      TOCPlugin,
     ],
     // md文件解析插件
     rehypePlugins: [
