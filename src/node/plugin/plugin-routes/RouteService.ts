@@ -49,16 +49,18 @@ export class RouteService {
   }
 
   // 生成路由页面代码
-  generateRoutesPath() {
+  generateRoutesPath(ssr: boolean) {
     return `
       import React from 'react';
-      import loadable from '@loadable/component';
+      ${ssr ? "" : 'import loadable from "@loadable/component";'}
       ${this.#routeData
         .map((route, index) => {
           // 动态加载路由信息（按需加载）
-          return `const Route${index} = loadable(() => import('${normalizePath(
-            route.absolutePath
-          )}')); `;
+          return ssr
+            ? `import Route${index} from "${normalizePath(route.absolutePath)}";`
+            : `const Route${index} = loadable(() => import('${normalizePath(
+                route.absolutePath
+              )}')); `;
 
           // 静态加载路由信息
           // return `import Route${index} from '${normalizePath(route.absolutePath)}'`;

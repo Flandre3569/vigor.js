@@ -3,6 +3,7 @@ import { RouteService } from "./RouteService";
 
 interface PluginRoutes {
   root: string;
+  isSSR: boolean;
 }
 
 export const CONVENTIONAL_ROUTE_ID = "vigor:routes";
@@ -21,7 +22,7 @@ export function pluginRoutes(options: PluginRoutes): Plugin {
     },
     load(id: string) {
       if (id === "\0" + CONVENTIONAL_ROUTE_ID) {
-        return rootService.generateRoutesPath();
+        return rootService.generateRoutesPath(options.isSSR || false);
       }
     },
   };

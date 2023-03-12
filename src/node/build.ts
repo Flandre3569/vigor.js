@@ -1,6 +1,6 @@
 import { build as viteBuild, InlineConfig } from "vite";
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from "./constants/index";
-import { join } from "path";
+import path, { join, dirname } from "path";
 import { PACKAGE_ROOT } from "./constants/index";
 
 import type { RollupOutput } from "rollup";
@@ -17,13 +17,13 @@ import { pluginRoutes } from "./plugin/plugin-routes";
 // 依靠vite的打包工具
 export async function bundle(root: string, config: SiteConfig) {
   // 使用vite进行打包，将重复逻辑进行抽离
-  const resolveViteConfig = async (isServer: boolean): Promise<InlineConfig> => ({
+  const resolveViteConfig = async (isServer: boolean, isSSR = isServer): Promise<InlineConfig> => ({
     mode: "production",
     root,
     plugins: [
       pluginReact(),
       pluginConfig(config),
-      pluginRoutes({ root: config.root }),
+      pluginRoutes({ root: config.root, isSSR }),
       await pluginMdx(),
     ],
     // 将react-router-dom直接打包进ssr的产物中，不用再单独引入第三方包了
@@ -32,7 +32,7 @@ export async function bundle(root: string, config: SiteConfig) {
     },
     build: {
       ssr: isServer,
-      outDir: isServer ? ".temp" : "build",
+      outDir: isServer ? path.join(root, ".temp") : path.join(root, "build"),
       rollupOptions: {
         input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
         output: {
@@ -69,14 +69,24 @@ export async function bundle(root: string, config: SiteConfig) {
 }
 
 // 渲染页面
-export async function renderPage(render: () => string, root: string, clientBundle: RollupOutput) {
-  // 拿到将html渲染为字符串的结果
-  const appHtml = render();
+export async function renderPage(
+  render: (pagePath: string) => string,
+  root: string,
+  clientBundle: RollupOutput,
+  routes
+) {
   // 水合
   const clientChunk = clientBundle.output.find((chunk) => chunk.type === "chunk" && chunk.isEntry);
   // 拼接为真正的html页面
   console.log("Rendering page in server side...");
-  const html = `
+
+  // 多路由打包
+  await Promise.all(
+    routes.map(async (route) => {
+      const routePath = route.path;
+      // 拿到将html渲染为字符串的结果
+      const appHtml = render(routePath);
+      const html = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -91,10 +101,14 @@ export async function renderPage(render: () => string, root: string, clientBundl
     </body>
     </html>
   `.trim();
+      const fileName = routePath.endsWith("/") ? `${routePath}index.html` : `${routePath}.html`;
+      await fs.ensureDir(join(root, "build", dirname(fileName)));
 
-  await fs.ensureDir(join(root, "build"));
-  // 将以上页面html产物写到对应的文件目录中
-  await fs.writeFile(join(root, "build/index.html"), html);
+      // 将以上页面html产物写到对应的文件目录中
+      await fs.writeFile(join(root, "build", fileName), html);
+    })
+  );
+
   // 移除掉ssr的产物
   await fs.remove(join(root, ".temp"));
 }
@@ -106,6 +120,10 @@ export async function build(root: string = process.cwd(), config: SiteConfig) {
   // 引入 server-entry 模块,也就是引入刚才打包生成的ssr产物
   const serverEntryPath = `${PACKAGE_ROOT}/docs/.temp/ssr-entry.js`;
   // 服务端渲染，产出HTML
-  const { render } = await import(pathToFileURL(serverEntryPath).toString()); // pathToFileURL是为了兼容windows的url格式
-  await renderPage(render, root, clientBundle);
+  const { render, routes } = await import(pathToFileURL(serverEntryPath).toString()); // pathToFileURL是为了兼容windows的url格式
+  try {
+    await renderPage(render, root, clientBundle, routes);
+  } catch (e) {
+    console.log("Render is error\n", e);
+  }
 }

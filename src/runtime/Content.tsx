@@ -22,7 +22,6 @@ import { useRoutes } from 'react-router-dom';
 // ]
 
 export const Content = () => {
-  console.log(routes);
   const rootElement = useRoutes(routes);
   return rootElement;
 }
