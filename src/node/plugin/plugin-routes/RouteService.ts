@@ -56,6 +56,7 @@ export class RouteService {
       ${this.#routeData
         .map((route, index) => {
           // 动态加载路由信息（按需加载）
+          // 在生产环境下，如果是ssr产物，则使用多路由打包
           return ssr
             ? `import Route${index} from "${normalizePath(route.absolutePath)}";`
             : `const Route${index} = loadable(() => import('${normalizePath(
@@ -76,6 +77,8 @@ export class RouteService {
       ]
     `;
   }
+
+  // 设定一个访问私有变量的api，用来单元测试
   getRouteData(): RouteData[] {
     return this.#routeData;
   }

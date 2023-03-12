@@ -17,12 +17,15 @@ import { pluginRoutes } from "./plugin/plugin-routes";
 // 依靠vite的打包工具
 export async function bundle(root: string, config: SiteConfig) {
   // 使用vite进行打包，将重复逻辑进行抽离
+  // 设定isSSR，判断是否是生产环境下，用不用多路由打包
   const resolveViteConfig = async (isServer: boolean, isSSR = isServer): Promise<InlineConfig> => ({
     mode: "production",
     root,
     plugins: [
       pluginReact(),
       pluginConfig(config),
+      // 此处的isSSR和isServer其实是一个东西，但是用的结构符，所以名称需要和之前设定的一样
+      // 所以添加了一个参数，直接让其和isServer相同
       pluginRoutes({ root: config.root, isSSR }),
       await pluginMdx(),
     ],
@@ -101,6 +104,7 @@ export async function renderPage(
     </body>
     </html>
   `.trim();
+      // 开始写入文件
       const fileName = routePath.endsWith("/") ? `${routePath}index.html` : `${routePath}.html`;
       await fs.ensureDir(join(root, "build", dirname(fileName)));
 

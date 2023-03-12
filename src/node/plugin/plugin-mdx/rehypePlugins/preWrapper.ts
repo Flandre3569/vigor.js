@@ -28,6 +28,7 @@ export const preWrapperPlugin: Plugin<[], Root> = () => {
           },
         };
 
+        // 在pre外层包裹一层div，并且给代码块设定一个span标签作为标题，注明使用的语言
         node.tagName = "div";
         node.properties = node.properties || {};
         node.properties.className = codeClassName;

@@ -11,4 +11,5 @@ export function render(pagePath: string) {
   );
 }
 
+// 从路由插件中导出路由信息，方便ssr生产环境多路由打包
 export { routes } from "vigor:routes";

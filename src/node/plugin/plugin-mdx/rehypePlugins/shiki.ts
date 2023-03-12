@@ -10,7 +10,9 @@ interface Options {
 
 export const shikiPlugin: Plugin<[Options], Root> = ({ highlighter }) => {
   return (tree) => {
+    // 使用unist-util-visit工具遍历结构树
     visit(tree, "element", (node, index, parent) => {
+      // 找到目标位置（元素）
       if (
         node.tagName === "pre" &&
         node.children[0]?.type === "element" &&
@@ -23,6 +25,7 @@ export const shikiPlugin: Plugin<[Options], Root> = ({ highlighter }) => {
 
         if (!lang) return;
 
+        // 实现高亮
         const highlightCode = highlighter.codeToHtml(codeContent, { lang });
         const fragmentAST = fromHtml(highlightCode, { fragment: true });
         parent.children.splice(index, 1, ...fragmentAST.children);

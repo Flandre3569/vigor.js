@@ -11,6 +11,7 @@ import rehypePluginSlug from "rehype-slug";
 import remarkPluginFrontmatter from "remark-frontmatter";
 import remarkPluginMDXFrontmatter from "remark-mdx-frontmatter";
 
+// 为md文件元信息优化为更优良的结构的插件 -> 外包一层div并添加一个span作为标题
 import { preWrapperPlugin } from "./rehypePlugins/preWrapper";
 
 // 代码高亮插件
