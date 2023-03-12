@@ -1,4 +1,5 @@
 import pluginMdx from "@mdx-js/rollup";
+import { Plugin } from "vite";
 // github的markdown语法标准
 import remarkGFM from "remark-gfm";
 
@@ -12,31 +13,35 @@ import remarkPluginMDXFrontmatter from "remark-mdx-frontmatter";
 
 import { preWrapperPlugin } from "./rehypePlugins/preWrapper";
 
-export function pluginMdxRollup() {
-  return [
-    pluginMdx({
-      // 添加github的markdown标准-GFM语法
-      remarkPlugins: [
-        remarkGFM,
-        remarkPluginFrontmatter,
-        [remarkPluginMDXFrontmatter, { name: "frontmatter" }],
-      ],
-      rehypePlugins: [
-        rehypePluginSlug,
-        [
-          rehypePluginAutoLinkHeadings,
-          {
-            properties: {
-              class: "header-anchor",
-            },
-            content: {
-              type: "text",
-              value: "#",
-            },
+// 代码高亮插件
+import { shikiPlugin } from "./rehypePlugins/shiki";
+import shiki from "shiki";
+
+export async function pluginMdxRollup(): Promise<Plugin> {
+  return pluginMdx({
+    // 添加github的markdown标准-GFM语法
+    remarkPlugins: [
+      remarkGFM,
+      remarkPluginFrontmatter,
+      [remarkPluginMDXFrontmatter, { name: "frontmatter" }],
+    ],
+    // md文件解析插件
+    rehypePlugins: [
+      rehypePluginSlug,
+      [
+        rehypePluginAutoLinkHeadings,
+        {
+          properties: {
+            class: "header-anchor",
           },
-        ],
-        preWrapperPlugin,
+          content: {
+            type: "text",
+            value: "#",
+          },
+        },
       ],
-    }),
-  ];
+      preWrapperPlugin,
+      [shikiPlugin, { highlighter: await shiki.getHighlighter({ theme: "nord" }) }],
+    ],
+  }) as unknown as Plugin;
 }

@@ -4,7 +4,7 @@ import pluginReact from "@vitejs/plugin-react";
 import { PACKAGE_ROOT } from "./constants/index";
 import { resolveConfig } from "./config";
 import { pluginConfig } from "./plugin/config";
-import { createMdxPlugin } from "./plugin/plugin-mdx/index";
+import { pluginMdx } from "./plugin/plugin-mdx/index";
 import { pluginRoutes } from "./plugin/plugin-routes";
 
 export async function createDevServer(root: string) {
@@ -20,7 +20,7 @@ export async function createDevServer(root: string) {
       pluginReact(),
       pluginConfig(config),
       pluginRoutes({ root: config.root }),
-      createMdxPlugin(),
+      await pluginMdx(),
     ],
     // 配置e2e的服务器检索目录外的项目的合法性
     server: {

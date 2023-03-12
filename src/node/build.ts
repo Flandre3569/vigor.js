@@ -11,20 +11,20 @@ import { pathToFileURL } from "url";
 import { SiteConfig } from "types";
 import { pluginConfig } from "./plugin/config";
 
-import { createMdxPlugin } from "./plugin/plugin-mdx/index";
+import { pluginMdx } from "./plugin/plugin-mdx/index";
 import { pluginRoutes } from "./plugin/plugin-routes";
 
 // 依靠vite的打包工具
 export async function bundle(root: string, config: SiteConfig) {
   // 使用vite进行打包，将重复逻辑进行抽离
-  const resolveViteConfig = (isServer: boolean): InlineConfig => ({
+  const resolveViteConfig = async (isServer: boolean): Promise<InlineConfig> => ({
     mode: "production",
     root,
     plugins: [
       pluginReact(),
       pluginConfig(config),
       pluginRoutes({ root: config.root }),
-      createMdxPlugin(),
+      await pluginMdx(),
     ],
     // 将react-router-dom直接打包进ssr的产物中，不用再单独引入第三方包了
     ssr: {
@@ -58,9 +58,9 @@ export async function bundle(root: string, config: SiteConfig) {
     // 因为clientBuild和serverBuild是相互独立的两个函数，所以使用Promise.all进行优化将二者并行执行
     const [clientBundle, serverBundle] = await Promise.all([
       // client build
-      viteBuild(resolveViteConfig(false)),
+      viteBuild(await resolveViteConfig(false)),
       // server build
-      viteBuild(resolveViteConfig(true)),
+      viteBuild(await resolveViteConfig(true)),
     ]);
     return [clientBundle, serverBundle] as [RollupOutput, RollupOutput];
   } catch (error) {
