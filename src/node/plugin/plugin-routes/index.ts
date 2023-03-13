@@ -1,6 +1,20 @@
 import { Plugin } from "vite";
 import { RouteService } from "./RouteService";
+import { Element } from "hast";
+import react, { ComponentType } from "react";
+import { Frontmatter } from "../../../types/index";
 
+export interface PageModule {
+  default: ComponentType;
+  frontmatter?: Frontmatter;
+  [key: string]: unknown;
+}
+export interface Route {
+  path: string;
+  element: react.ReactElement;
+  filePath: string;
+  preload: () => Promise<PageModule>;
+}
 interface PluginRoutes {
   root: string;
   isSSR: boolean;

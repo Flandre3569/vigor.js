@@ -1,15 +1,22 @@
 import { useState } from "react"
-import { Content } from "@runtime";
+import { useContextData } from "@runtime";
 import "uno.css"
 
 export function Layout() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <h1 m="2">Common Content</h1>
-      <h1 p="2">index module</h1>
-      <Content />
-      
-    </div>
-  );
+  const pageData = useContextData();
+  const { pageType } = pageData;
+  const navContent = () => {
+    if (pageType === "home") {
+      return <div>主页内容</div>
+    } else if (pageType === "doc") {
+      return <div>正文内容</div>
+    } else if (pageType === "404") {
+      return <div>404页面</div>
+    }
+  }
+
+  return <div>
+    <div>Nav</div>
+    {navContent()}
+  </div>
 }

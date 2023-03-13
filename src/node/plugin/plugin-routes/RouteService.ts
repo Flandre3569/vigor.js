@@ -69,11 +69,15 @@ export class RouteService {
         .join("\n")}
       
       export const routes = [
-        ${this.#routeData.map((route, index) => {
-          return `{ path: '${normalizePath(
-            route.routePath
-          )}', element: React.createElement(Route${index}) }`;
-        })}
+        ${this.#routeData
+          .map((route, index) => {
+            return `{ path: '${normalizePath(
+              route.routePath
+            )}', element: React.createElement(Route${index}), preload: () => import('${normalizePath(
+              route.absolutePath
+            )}') },`;
+          })
+          .join("\n")}
       ]
     `;
   }

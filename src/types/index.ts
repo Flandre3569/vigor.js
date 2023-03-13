@@ -49,3 +49,34 @@ export interface SiteConfig {
   configPath: string;
   siteData: UserConfig;
 }
+
+export type PageType = "home" | "doc" | "custom" | "404";
+
+export interface Frontmatter {
+  title?: string;
+  description?: string;
+  // 页面类型
+  pageType?: PageType;
+  // 侧边栏
+  sidebar?: boolean;
+  // 大纲栏
+  outline?: boolean;
+}
+
+export interface TocTree {
+  id: string;
+  text: string;
+  depth: number;
+}
+
+// 传递给前端的信息
+export interface PageData {
+  // 网站的配置信息
+  siteData: UserConfig;
+  // 当前页面的路由
+  pagePath: string;
+  // 当前页面的元数据
+  frontmatter: Frontmatter;
+  pageType: PageType;
+  toc?: TocTree[];
+}
