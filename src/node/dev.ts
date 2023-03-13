@@ -7,6 +7,10 @@ import { pluginConfig } from "./plugin/config";
 import { pluginMdx } from "./plugin/plugin-mdx/index";
 import { pluginRoutes } from "./plugin/plugin-routes";
 
+// Unocss适配
+import pluginUnocss from "unocss/vite";
+import unocssOptions from "./unocssOptions";
+
 export async function createDevServer(root: string, isSSR: boolean = false) {
   // 拿到配置文件的解析路径和文件经过解析后的内容
   const config = await resolveConfig(root, "serve", "development");
@@ -16,6 +20,7 @@ export async function createDevServer(root: string, isSSR: boolean = false) {
     root: PACKAGE_ROOT,
     // 插件注册
     plugins: [
+      pluginUnocss(unocssOptions),
       pluginIndexHtml(),
       pluginReact(),
       pluginConfig(config),

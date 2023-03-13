@@ -14,6 +14,9 @@ import { pluginConfig } from "./plugin/config";
 import { pluginMdx } from "./plugin/plugin-mdx/index";
 import { pluginRoutes } from "./plugin/plugin-routes";
 
+import pluginUnocss from "unocss/vite";
+import unocssOptions from "./unocssOptions";
+
 // 依靠vite的打包工具
 export async function bundle(root: string, config: SiteConfig) {
   // 使用vite进行打包，将重复逻辑进行抽离
@@ -22,6 +25,7 @@ export async function bundle(root: string, config: SiteConfig) {
     mode: "production",
     root,
     plugins: [
+      pluginUnocss(unocssOptions),
       pluginReact(),
       pluginConfig(config),
       // 此处的isSSR和isServer其实是一个东西，但是用的结构符，所以名称需要和之前设定的一样
