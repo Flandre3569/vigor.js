@@ -25,6 +25,12 @@ export function pluginConfig(config: SiteConfig): Plugin {
         resolve: {
           alias: {
             "@runtime": join(PACKAGE_ROOT, "src", "runtime", "index.ts"),
+            "@constants": join(PACKAGE_ROOT, "src", "node", "constants", "index.ts"),
+          },
+        },
+        css: {
+          modules: {
+            localsConvention: "camelCaseOnly",
           },
         },
       };
