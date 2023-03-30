@@ -1,16 +1,21 @@
 import { useState } from "react"
 import { useContextData } from "@runtime";
-import { Nav } from "../../theme-default/component/nav";
+
+// 引入样式基础配置
 import "../styles/base.css";
 import "../styles/vars.css";
 import "uno.css"
 
+// 页面
+import { Nav } from "../component/nav";
+import { HomePage } from "./home/home";
+
 export function Layout() {
   const pageData = useContextData();
   const { pageType } = pageData;
-  const navContent = () => {
+  const Content = () => {
     if (pageType === "home") {
-      return <div>主页内容</div>
+      return <HomePage />
     } else if (pageType === "doc") {
       return <div>正文内容</div>
     } else if (pageType === "404") {
@@ -20,5 +25,6 @@ export function Layout() {
 
   return <div>
     <Nav />
+    { Content() }
   </div>
 }
