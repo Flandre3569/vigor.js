@@ -1,5 +1,5 @@
 .link:hover {
-  color: var(--island-c-brand);
+  color: var(--vigor-c-deep-green);
   transition: color 0.2s;
 }
 
@@ -13,8 +13,8 @@
   display: flex;
   fill: currentColor;
   transition: color 0.2s;
-  color: var(--island-c-text-1);
+  color: var(--vigor-c-moon-black);
   &:hover {
-    color: var(--island-c-text-2);
+    color: var(--vigor-c-light-black);
   }
 }

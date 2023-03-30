@@ -14,7 +14,7 @@ const options: VitePluginConfig = {
     [
       /^divider-(\w+)$/,
       ([, w]) => ({
-        [`border-${w}`]: "1px solid var(--island-c-divider-light)",
+        [`border-${w}`]: "1px solid var(--vigor-c-divider-light)",
       }),
     ],
   ],
