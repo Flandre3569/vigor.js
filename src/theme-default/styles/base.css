@@ -4,15 +4,57 @@
 }
 /* 样式 */
 body {
-  color: var(--vigor-c-white);
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  line-height: 24px;
+  font-family: var(--vigor-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--vigor-c-text-main);
   background-color: var(--vigor-c-lynx-white);
+  direction: ltr;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: var(--vigor-c-moon-black);
-  text-decoration: none;
+  color: inherit;
+  text-decoration: inherit;
 }
 
-a:hover {
-  color: var(--vigor-c-light-black);
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+strong,
+b {
+  font-weight: 600;
 }

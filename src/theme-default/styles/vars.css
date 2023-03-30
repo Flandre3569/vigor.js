@@ -1,5 +1,6 @@
-/* 基础颜色 */
+
 :root {
+  /* 基础颜色 */
   --vigor-c-white: #ffffff;
   --vigor-c-lynx-white: #f5f6fa;
 
@@ -34,10 +35,20 @@
   --vigor-c-black: #0a0a0a;
 
   --vigor-c-divider-light-1: rgba(60, 60, 60, 0.12);
+
+}
+:root {
+  --vigor-font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 /* 主题配色 */
 :root {
   /* 下划线 */
   --vigor-c-divider-light: var(--vigor-c-divider-light-1);
+
+  /* 文本 */
+  --vigor-c-text-main: var(--vigor-c-moon-black);
+
+  /* 背景颜色 */
+  --vigor-c-bg-main: var(--vigor-c-lynx-white);
 }

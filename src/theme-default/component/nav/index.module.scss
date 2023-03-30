@@ -13,8 +13,8 @@
   display: flex;
   fill: currentColor;
   transition: color 0.2s;
-  color: var(--vigor-c-moon-black);
+  color: var(--vigor-c-light-black);
   &:hover {
-    color: var(--vigor-c-light-black);
+    color: var(--vigor-c-black);
   }
 }
