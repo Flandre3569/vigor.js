@@ -12,18 +12,18 @@ import styles from "./index.module.scss";
 export function HeroComponent(props: { hero: Hero }) {
   const { hero } = props;
   return (
-    <div flex="~" w-full>
+    <div flex="~">
       <div className="w-1/2">
         <div>
           <h1 className="text-5xl font-semibold pb-5">
             <span className={styles.title}> {hero.name} </span>
           </h1>
           <p className="text-6xl font-semibold"> { hero.text } </p>
-          <p className="text-2xl py-3 opacity-65"> { hero.tagline } </p>
+          <p className="text-2xl pt-3 pb-6 opacity-65"> { hero.tagline } </p>
         </div>
         <div flex="~">
           {hero.actions.map((action) => (
-            <div key={action.link}>
+            <div key={action.link} className="pr-3">
               <Button
                 type="a"
                 text={action.text}
@@ -34,7 +34,9 @@ export function HeroComponent(props: { hero: Hero }) {
           ))}
         </div>
       </div>
-      <div></div>
+      <div>
+        <img src={ hero.image.src } alt={ hero.image.alt } />
+      </div>
     </div>
   )
 }

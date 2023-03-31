@@ -35,7 +35,7 @@ export function Button(props: ButtonTypes) {
     type ?? "a",
     {
       href,
-      className: `${styles.button} ${styles[size]}`
+      className: `${styles.button} ${styles[size]} ${styles[theme]} ${className}`
     },
     props.text
   )

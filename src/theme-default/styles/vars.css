@@ -16,6 +16,9 @@
   --vigor-c-light-yellow: #fbc531;
   --vigor-c-deep-yellow: #e1b12c;
 
+  --vigor-c-azure: #5FFBF1;
+  --vigor-c-deep-azure: #19CFC4;
+  --vigor-c-azure-light: #35CFC6;
   --vigor-c-light-green: #4cd137;
   --vigor-c-deep-green: #44bd32;
 
@@ -55,7 +58,10 @@
   --vigor-c-bg-main: var(--vigor-c-lynx-white);
 
    /* 按钮brand主题配色 */
-   --vigor-c-brand: var(--vigor-c-grey-deep-blue);
+   --vigor-bg-brand: var(--vigor-c-purple);
+   --vigor-bg-alt: var(--vigor-c-deep-grey);
+   --vigor-bg-brand-light: var(--vigor-c-azure-light);
+   --vigor-text-brand: var(--vigor-c-azure);
    /* 按钮alt主题配色 */
    --vigor-c-alt: var(--vigor-c-deep-grey);
  

@@ -24,3 +24,13 @@
   line-height: 46px;
   font-size: 16px;
 }
+
+.button.brand {
+  background-color: var(--vigor-bg-brand);
+}
+
+.button.alt {
+  background-color: var(--vigor-bg-alt);
+  opacity: 70%
+}
+
