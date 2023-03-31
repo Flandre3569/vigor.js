@@ -36,14 +36,11 @@
 
   --vigor-c-divider-light-1: rgba(60, 60, 60, 0.12);
 
-  
-  /* 按钮brand主题配色 */
-  --vigor-c-brand: #40739e;
-  /* 按钮alt主题配色 */
-  --vigor-c-alt: #718093;
+  --vigor-c-progress-black-white: linear-gradient(to right top, #c3d8f9, #8cb0c3, #63868d, #445e5b, #2a3730);
+ 
 }
 :root {
-  --vigor-font-family: Verdana, Arial, Helvetica, sans-serif;
+  --vigor-font-family: Arial, sans-serif;
 }
 
 /* 主题配色 */
@@ -56,4 +53,12 @@
 
   /* 背景颜色 */
   --vigor-c-bg-main: var(--vigor-c-lynx-white);
+
+   /* 按钮brand主题配色 */
+   --vigor-c-brand: var(--vigor-c-grey-deep-blue);
+   /* 按钮alt主题配色 */
+   --vigor-c-alt: var(--vigor-c-deep-grey);
+ 
+   /* 标题配色 */
+   --vigor-c-title: var(--vigor-c-progress-black-white);
 }

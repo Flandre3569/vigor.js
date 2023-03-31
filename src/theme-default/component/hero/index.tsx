@@ -1,6 +1,8 @@
 import { Hero } from "types";
 import { Button } from "../Button";
 
+import styles from "./index.module.scss";
+
 // hero组件
 // hero组件是主页的标题介绍和图片展示。
 
@@ -10,14 +12,14 @@ import { Button } from "../Button";
 export function HeroComponent(props: { hero: Hero }) {
   const { hero } = props;
   return (
-    <div>
-      <div>
+    <div flex="~" w-full>
+      <div className="w-1/2">
         <div>
-          <h1 className="text-6xl font-semibold">
-            <span> {hero.name} </span>
+          <h1 className="text-5xl font-semibold pb-5">
+            <span className={styles.title}> {hero.name} </span>
           </h1>
-          <p> { hero.text } </p>
-          <p> { hero.tagline } </p>
+          <p className="text-6xl font-semibold"> { hero.text } </p>
+          <p className="text-2xl py-3 opacity-65"> { hero.tagline } </p>
         </div>
         <div flex="~">
           {hero.actions.map((action) => (
