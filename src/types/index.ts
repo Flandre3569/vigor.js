@@ -80,3 +80,38 @@ export interface PageData {
   pageType: PageType;
   toc?: TocTree[];
 }
+
+export interface Image {
+  src: string;
+  alt?: string;
+}
+
+export interface Action {
+  theme: "brand" | "alt";
+  text?: string;
+  link?: string;
+}
+
+export interface Hero {
+  name?: string;
+  text?: string;
+  tagline?: string;
+  image?: Image;
+  actions?: Action[];
+}
+
+export interface Feature {
+  title: string;
+  details: string;
+  icon?: string;
+}
+// 关于主页中的frontmatter类型,下面涉及到的部分类型都在上面进行注明
+export interface Frontmatter {
+  title?: string;
+  description?: string;
+  pageType?: PageType;
+  sidebar?: boolean;
+  outLine?: boolean;
+  hero?: Hero;
+  feature?: Feature[];
+}

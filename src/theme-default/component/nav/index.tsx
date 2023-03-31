@@ -20,7 +20,7 @@ export function Nav() {
     <header relative="~" w="full">
       <div flex="~" justify="between" items="center" className="px-8 h-14 divider-bottom">
         <div>
-          <a href="/" className="w-full h-full text-1rem font-semibold flex items-center" hover="opacity-60">vigor.js</a>
+          <a href="/" className="w-full h-full text-1rem flex items-center" hover="opacity-60">vigor.js</a>
       </div>
       <div flex="~">
           <div flex="~">

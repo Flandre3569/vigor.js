@@ -36,6 +36,11 @@
 
   --vigor-c-divider-light-1: rgba(60, 60, 60, 0.12);
 
+  
+  /* 按钮brand主题配色 */
+  --vigor-c-brand: #40739e;
+  /* 按钮alt主题配色 */
+  --vigor-c-alt: #718093;
 }
 :root {
   --vigor-font-family: Verdana, Arial, Helvetica, sans-serif;
