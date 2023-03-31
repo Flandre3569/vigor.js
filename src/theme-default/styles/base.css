@@ -22,6 +22,7 @@ body {
 }
 
 a {
+  transition: 0.2s;
   color: inherit;
   text-decoration: inherit;
 }

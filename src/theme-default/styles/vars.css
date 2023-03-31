@@ -36,7 +36,7 @@
 
   --vigor-c-divider-light-1: rgba(60, 60, 60, 0.12);
 
-  --vigor-c-progress-black-white: linear-gradient(to right top, #c3d8f9, #8cb0c3, #63868d, #445e5b, #2a3730);
+  --vigor-c-progress-black-white: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
  
 }
 :root {
