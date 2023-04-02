@@ -18,6 +18,9 @@ const options: VitePluginConfig = {
       }),
     ],
   ],
+  shortcuts: {
+    "flex-center": "flex justify-center items-center",
+  },
 };
 
 export default options;

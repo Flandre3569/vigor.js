@@ -92,6 +92,7 @@ export interface Action {
   link?: string;
 }
 
+// 主页Hero组件
 export interface Hero {
   name?: string;
   text?: string;
@@ -100,6 +101,7 @@ export interface Hero {
   actions?: Action[];
 }
 
+// 主页Feature组件
 export interface Feature {
   title: string;
   details: string;
@@ -113,5 +115,5 @@ export interface Frontmatter {
   sidebar?: boolean;
   outLine?: boolean;
   hero?: Hero;
-  feature?: Feature[];
+  features?: Feature[];
 }

@@ -3,6 +3,9 @@
   /* 基础颜色 */
   --vigor-c-white: #ffffff;
   --vigor-c-lynx-white: #f5f6fa;
+  --vigor-c-soft-white: #fffffe;
+  --vigor-c-soft-pink: #f3d2c1;
+  --vigor-c-swan-white: #f7f1e3;
 
   --vigor-c-flower-red: #e84118;
   --vigor-c-flower-deep-red: #c23616;
@@ -55,7 +58,10 @@
   --vigor-c-text-main: var(--vigor-c-moon-black);
 
   /* 背景颜色 */
-  --vigor-c-bg-main: var(--vigor-c-lynx-white);
+  --vigor-c-bg-main: var(--vigor-c-soft-white);
+  --vigor-c-bg-soft: var(--vigor-c-lynx-white);
+  /* 主页icon背景颜色 */
+  --vigor-c-icon-bg: var(--vigor-c-swan-white);
 
    /* 按钮brand主题配色 */
    --vigor-bg-brand: var(--vigor-c-purple);

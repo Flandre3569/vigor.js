@@ -13,7 +13,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: var(--vigor-c-text-main);
-  background-color: var(--vigor-c-lynx-white);
+  background-color: var(--vigor-c-bg-main);
   direction: ltr;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
