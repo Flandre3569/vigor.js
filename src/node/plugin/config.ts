@@ -22,10 +22,12 @@ export function pluginConfig(config: SiteConfig): Plugin {
     // 通过config钩子设置别名，此处设置的别名会自动与vite配置中的别名呼应
     config() {
       return {
+        root: PACKAGE_ROOT,
         resolve: {
           alias: {
             "@runtime": join(PACKAGE_ROOT, "src", "runtime", "index.ts"),
             "@constants": join(PACKAGE_ROOT, "src", "node", "constants", "index.ts"),
+            "@types": join(PACKAGE_ROOT, "src", "types", "index.ts"),
           },
         },
         css: {
