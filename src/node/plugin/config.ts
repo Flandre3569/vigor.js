@@ -2,6 +2,9 @@ import { PACKAGE_ROOT } from "node/constants";
 import { join } from "path";
 import { SiteConfig } from "types/index";
 import { Plugin } from "vite";
+import sirv from "sirv";
+import path from "path";
+import fs from "fs-extra";
 
 const SITE_DATA_ID = "vigor:site-data";
 
@@ -31,11 +34,23 @@ export function pluginConfig(config: SiteConfig): Plugin {
           },
         },
         css: {
+          // 在scss中定义类名的时候使用 '-' 格式可以转换为小驼峰形式进行使用
+          // 比如：
+          // scss: .main-bg
+          // tsx: mainBg
           modules: {
             localsConvention: "camelCaseOnly",
           },
         },
       };
+    },
+    // 构建一个配置服务器来加载docs文件夹下public中的静态资源
+    // sirv 是一个优化过的轻量级中间件，用来处理静态资源请求
+    configureServer(server) {
+      const publicDir = path.join(config.root, "public");
+      if (fs.pathExistsSync(publicDir)) {
+        server.middlewares.use(sirv(publicDir));
+      }
     },
     // 一个学习的内容，本身未实现，比较复杂的一个逻辑。
     // 钩子函数：当配置文件发生改变时，达到热更新的效果

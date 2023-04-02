@@ -34,8 +34,14 @@ export function HeroComponent(props: { hero: Hero }) {
           ))}
         </div>
       </div>
-      <div>
-        <img src={ hero.image.src } alt={ hero.image.alt } />
+      <div w="1/2" flex="center" >
+        {
+          hero.image && (
+            <div>
+              <img h="85" src={ hero.image.src } alt={ hero.image.alt } />
+            </div>
+          )
+        }
       </div>
     </div>
   )
