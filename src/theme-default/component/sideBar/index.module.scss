@@ -4,7 +4,7 @@
   bottom: 0;
   left: 0;
   padding: 80px 32px 96px;
-  width: 13vw;
+  width: var(--vigor-sidebar-width);
   max-width: 320px;
   background-color: var(--vigor-c-bg-soft);
   overflow-x: hidden;
@@ -17,6 +17,6 @@
 }
 
 .item {
-  opacity: 60%;
+  opacity: 70%;
   color: var(--vigor-c-text-main);
 }

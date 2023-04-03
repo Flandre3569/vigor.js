@@ -76,4 +76,7 @@
 
    /* nav hover配色 */
    --vigor-link-onfocus: var(--vigor-c-deep-green);
+
+   /* 侧边栏宽度 */
+   --vigor-sidebar-width: 13vw;
 }

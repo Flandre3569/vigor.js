@@ -1,6 +1,7 @@
 import { useContextData } from "@runtime";
 import { useLocation } from "react-router-dom";
 import { Sidebar } from "../../component/sidebar";
+import { Content } from "@runtime";
 
 export function DocPage() {
   const { siteData } = useContextData();
@@ -19,8 +20,13 @@ export function DocPage() {
   const matchedSidebar = sidebarData[matchedSidebarKey] || [];
 
   return (
-    <div>
-      <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
+    <div flex="~" >
+      <div w="1/4" >
+        <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
+      </div>
+      <div>
+        <Content />
+      </div>
     </div>
   );
 }
