@@ -17,7 +17,7 @@ export function Nav() {
   const { siteData } = useContextData();
   const nav = siteData?.themeConfig?.nav || [];
   return (
-    <header fixed="~" w="full">
+    <header fixed="~" w="full" z="10">
       <div flex="~" justify="between" items="center" className="px-8 h-14 divider-bottom">
         <div>
           <a href="/" className="w-full h-full text-1rem flex items-center" hover="opacity-60">vigor.js</a>

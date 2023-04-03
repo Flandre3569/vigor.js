@@ -1,0 +1,22 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 80px 32px 96px;
+  width: 13vw;
+  max-width: 320px;
+  background-color: var(--vigor-c-bg-soft);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: transform 0.25s ease;
+}
+
+.item-onfocus {
+  color: var(--vigor-link-onfocus);
+}
+
+.item {
+  opacity: 60%;
+  color: var(--vigor-c-text-main);
+}

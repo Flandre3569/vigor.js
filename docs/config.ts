@@ -4,6 +4,7 @@ import { defineConfig } from "../dist";
 export default defineConfig({
   title: "123",
   themeConfig: {
+    // nav内容
     nav: [
       {
         text: "主页",
@@ -11,8 +12,27 @@ export default defineConfig({
       },
       {
         text: "指南",
-        link: "/",
+        link: "/guide/",
       },
     ],
+
+    // sidebar内容
+    sidebar: {
+      "/guide/": [
+        {
+          text: "教程",
+          items: [
+            {
+              text: "快速上手",
+              link: "/guide/a",
+            },
+            {
+              text: "如何安装",
+              link: "/guide/b",
+            },
+          ],
+        },
+      ],
+    },
   },
 });

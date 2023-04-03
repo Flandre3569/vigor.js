@@ -73,4 +73,7 @@
  
    /* 标题配色 */
    --vigor-c-title: var(--vigor-c-progress-black-white);
+
+   /* nav hover配色 */
+   --vigor-link-onfocus: var(--vigor-c-deep-green);
 }
