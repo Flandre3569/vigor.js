@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./index.module.scss"
 interface LinkType {
   href?: string;
-  children?: React.ReactElement;
+  children?: React.ReactNode;
   className?: string;
 }
 
@@ -24,5 +24,5 @@ export function Link(props: LinkType) {
   const target = isExternal ? '_blank' : '';
   const rel = isExternal ? "noopener noreferrer" : undefined;
 
-  return <a href={href} rel={rel} target={target} className={`${props.className} ${styles.link}`}>{ children } </a>
+  return <a href={href} rel={rel} target={target} className={`${className} ${styles.link}`}>{ children } </a>
 }
