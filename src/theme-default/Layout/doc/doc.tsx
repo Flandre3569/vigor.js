@@ -2,6 +2,7 @@ import { useContextData } from "@runtime";
 import { useLocation } from "react-router-dom";
 import { Sidebar } from "../../component/sidebar";
 import { Content } from "@runtime";
+import styles from "./index.module.scss";
 
 export function DocPage() {
   const { siteData } = useContextData();
@@ -24,7 +25,7 @@ export function DocPage() {
       <div w="1/4">
         <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
       </div>
-      <div pt="22" w="1/2">
+      <div pt="22" w="1/2" className={styles.vigorDoc} >
         <Content />
       </div>
     </div>

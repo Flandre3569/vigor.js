@@ -1,0 +1,41 @@
+.vigor-doc h1,
+.vigor-doc h2,
+.vigor-doc h3,
+.vigor-doc h4,
+.vigor-doc h5,
+.vigor-doc h6 {
+  position: relative;
+  font-weight: 600;
+  outline: none;
+}
+
+.vigor-doc h1 {
+  letter-spacing: -0.02em;
+  line-height: 40px;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.vigor-doc h2 {
+  margin: 48px 0 16px;
+  /* padding-top: 24px; */
+  letter-spacing: -0.02em;
+  line-height: 32px;
+  font-size: 24px;
+}
+
+.vigor-doc h3 {
+  margin: 32px 0 0;
+  letter-spacing: -0.01em;
+  line-height: 28px;
+  font-size: 20px;
+}
+
+.vigor-doc .header-anchor {
+  float: left;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  font-weight: 500;
+  opacity: 0;
+  transition: color 0.25s, opacity 0.25s;
+}
