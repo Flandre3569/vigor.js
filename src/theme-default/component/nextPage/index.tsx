@@ -2,6 +2,7 @@ import { useContextData } from "@runtime";
 import { useLocation } from "react-router-dom";
 
 export function getNextPageData() {
+  // 拿到当前页面的路由
   const { pathname } = useLocation();
   const { siteData } = useContextData();
 
@@ -31,6 +32,31 @@ export function getNextPageData() {
 }
 
 
-export function nextPage() {
+export function NextPage() {
+  const { prevPage, nextPage } = getNextPageData();
 
+  return (
+    <footer>
+      <div>
+        <div>
+          {
+            prevPage && 
+            <a href={prevPage.link}>
+                <span>上一页</span>
+                <span>{ prevPage.text }</span>
+            </a>
+          }
+        </div>
+        <div>
+          {
+            nextPage && 
+            <a href={nextPage.link}>
+                <span>下一页</span>
+                <span>{ nextPage.text} </span>
+            </a>
+          }
+        </div>
+      </div>
+    </footer>
+  )
 }
