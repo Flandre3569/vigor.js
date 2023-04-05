@@ -21,10 +21,10 @@ export function DocPage() {
 
   return (
     <div flex="~" >
-      <div w="1/4" >
+      <div w="1/4">
         <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
       </div>
-      <div>
+      <div pt="22" w="1/2">
         <Content />
       </div>
     </div>

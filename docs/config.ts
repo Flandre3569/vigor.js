@@ -12,7 +12,7 @@ export default defineConfig({
       },
       {
         text: "指南",
-        link: "/guide/",
+        link: "/guide/a",
       },
     ],
 
