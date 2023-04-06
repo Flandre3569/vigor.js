@@ -37,12 +37,12 @@ export function NextPage() {
 
   return (
     <footer>
-      <div>
+      <div flex="~" justify="between" p="10">
         <div>
           {
             prevPage && 
             <a href={prevPage.link}>
-                <span>上一页</span>
+                <span mr="5">上一页</span>
                 <span>{ prevPage.text }</span>
             </a>
           }
@@ -51,7 +51,7 @@ export function NextPage() {
           {
             nextPage && 
             <a href={nextPage.link}>
-                <span>下一页</span>
+                <span mr="5">下一页</span>
                 <span>{ nextPage.text} </span>
             </a>
           }
