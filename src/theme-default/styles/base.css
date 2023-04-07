@@ -82,3 +82,11 @@ button,
 [role='button'] {
   cursor: pointer;
 }
+
+/* 把列表前面的小符号消除 */
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

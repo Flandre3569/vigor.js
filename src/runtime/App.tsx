@@ -18,6 +18,8 @@ export async function initPageData(routePath: string): Promise<PageData> {
       siteData: siteData,
       frontmatter: moduleInfo.frontmatter,
       pagePath: routePath,
+      // 这边有一个类型错误，应该是上面的moduleInfo那边产生了类型不匹配的问题
+      toc: moduleInfo.toc as any
     }
   }
 

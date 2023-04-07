@@ -1,0 +1,7 @@
+.toc-link {
+  color: var(--vigor-c-text-main);
+  &:hover {
+    color: var(--vigor-toc-hover);
+    font-weight: 650;
+  }
+}

@@ -3,10 +3,11 @@ import { useLocation } from "react-router-dom";
 import { Sidebar } from "../../component/sidebar";
 import { Content } from "@runtime";
 import { NextPage } from "../../component/nextPage";
+import { TocComponent } from "../../component/toc";
 import styles from "./index.module.scss";
 
 export function DocPage() {
-  const { siteData } = useContextData();
+  const { siteData, toc } = useContextData();
   const sidebarData = siteData.themeConfig?.sidebar || {};
   // 拿到当前具体处于哪个侧边栏的item中
   // 目的是获取到具体路径,然后对当前路径的导航栏保持高亮
@@ -26,12 +27,17 @@ export function DocPage() {
       <div w="1/4">
         <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
       </div>
-      <div pt="22" w="1/2" className={styles.vigorDoc} >
-        <div>
+      <div pt="22" w="3/4" className={styles.vigorDoc} flex="~">
+        <div w="2/3">
           <Content />
+          <NextPage />
         </div>
-        <NextPage />
+        
+        <div className={styles.tocContainer} w="1/4" h="100vw" pl="20" >
+          <TocComponent headers={toc}></TocComponent>
+        </div>
       </div>
+      
     </div>
   );
 }

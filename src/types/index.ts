@@ -1,4 +1,5 @@
 import { UserConfig as ViteUserConfig } from "vitest/config";
+import { ComponentType } from "react";
 
 // 导航栏 -> 包括文本和链接
 export interface NavItemsConfig {
@@ -80,6 +81,13 @@ export interface PageData {
   pageType: PageType;
   toc?: TocTree[];
 }
+
+// export interface PageModule {
+//   default: ComponentType;
+//   frontmatter?: Frontmatter;
+//   toc?: TocTree[];
+//   [key: string]: unknown;
+// }
 
 export interface Image {
   src: string;
