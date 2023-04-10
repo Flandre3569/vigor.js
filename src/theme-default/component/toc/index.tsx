@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { TocTree } from "types";
 import styles from "./index.module.scss";
 
+import { scrollToTarget } from "./activeScroll";
+
 export interface TocType {
   headers: TocTree[]
 }
@@ -23,6 +25,11 @@ export function TocComponent(props: TocType) {
           transition="color duration-300"
           style={{
             paddingLeft: (tocTree.depth - 2) * 12
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            const target = document.getElementById(tocTree.id);
+            target && scrollToTarget(target, false);
           }}
         >
           {tocTree.text}
