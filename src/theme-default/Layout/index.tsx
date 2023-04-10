@@ -10,6 +10,7 @@ import "uno.css"
 import { Nav } from "../component/nav";
 import { HomePage } from "./home/home";
 import { DocPage } from "./doc/doc";
+import { NotFoundPage } from "./notFound/index";
 
 export function Layout() {
   const pageData = useContextData();
@@ -20,7 +21,7 @@ export function Layout() {
     } else if (pageType === "doc") {
       return <DocPage />
     } else if (pageType === "404") {
-      return <div>404页面</div>
+      return <NotFoundPage />
     }
   }
 

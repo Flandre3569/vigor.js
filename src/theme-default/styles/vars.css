@@ -87,4 +87,7 @@
 
   /* toc文件hover配色 */
   --vigor-toc-hover: var(--vigor-c-black);
+
+  /* 404 - h1 */
+  --vigor-c-404-h1: var(--vigor-c-grey-blue);
 }
