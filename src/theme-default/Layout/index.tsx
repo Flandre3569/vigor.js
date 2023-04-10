@@ -20,7 +20,7 @@ export function Layout() {
       return <HomePage />
     } else if (pageType === "doc") {
       return <DocPage />
-    } else if (pageType === "404") {
+    } else {
       return <NotFoundPage />
     }
   }

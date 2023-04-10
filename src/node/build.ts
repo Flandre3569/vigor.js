@@ -89,7 +89,12 @@ export async function renderPage(
 
   // 多路由打包
   await Promise.all(
-    routes.map(async (route) => {
+    [
+      ...routes,
+      {
+        path: "/404",
+      },
+    ].map(async (route) => {
       const routePath = route.path;
       // 拿到将html渲染为字符串的结果
       const appHtml = render(routePath);
