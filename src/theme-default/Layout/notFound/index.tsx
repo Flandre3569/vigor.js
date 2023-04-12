@@ -1,5 +1,7 @@
 import styles from "./index.module.scss";
 
+const imgOssPath = "http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/404.png";
+
 export function NotFoundPage() {
   return (
     <div flex="~" h="full">
@@ -21,7 +23,7 @@ export function NotFoundPage() {
         </a>
       </div>
       <div relative="~" className="top-10" >
-        <img className="w-250 left-0" src="../../../../docs/public/404.png" alt="404" />
+        <img className="w-250 left-0" src={imgOssPath} alt="404" />
       </div>
     </div>
   )
