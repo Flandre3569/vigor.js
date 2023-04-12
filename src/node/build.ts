@@ -12,7 +12,7 @@ import { SiteConfig } from "types";
 import { pluginConfig } from "./plugin/config";
 
 import { pluginMdx } from "./plugin/plugin-mdx/index";
-import { pluginRoutes } from "./plugin/plugin-routes";
+import { Route, pluginRoutes } from "./plugin/plugin-routes";
 
 import pluginUnocss from "unocss/vite";
 import unocssOptions from "./unocssOptions";
@@ -80,7 +80,7 @@ export async function renderPage(
   render: (pagePath: string) => string,
   root: string,
   clientBundle: RollupOutput,
-  routes
+  routes: Route[]
 ) {
   // 水合
   const clientChunk = clientBundle.output.find((chunk) => chunk.type === "chunk" && chunk.isEntry);
@@ -123,7 +123,7 @@ export async function renderPage(
   );
 
   // 移除掉ssr的产物
-  await fs.remove(join(root, ".temp"));
+  // await fs.remove(join(root, ".temp"));
 }
 
 // feature: SSG构建页面
