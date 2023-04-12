@@ -1,6 +1,7 @@
 import { cac } from "cac";
 import { createDevServer } from "./dev";
 import { build } from "./build";
+import { preview } from "./preview";
 import { resolve } from "path";
 import { resolveConfig } from "./config";
 const version = require("../../package.json").version;
@@ -29,5 +30,18 @@ cli.command("build [root]", "build in production").action(async (root: string) =
     console.log(error);
   }
 });
+
+// 本地预览产物
+cli
+  .command("preview [root]", "preview production build")
+  .option("--port <port>", "port to use for preview server")
+  .action(async (root: string, { port }: { port: number }) => {
+    try {
+      root = resolve(root);
+      await preview(root, { port });
+    } catch (e) {
+      console.log(e);
+    }
+  });
 
 cli.parse();
