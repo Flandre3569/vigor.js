@@ -38,6 +38,7 @@ cli
   .action(async (root: string, { port }: { port: number }) => {
     try {
       root = resolve(root);
+      console.log(root);
       await preview(root, { port });
     } catch (e) {
       console.log(e);

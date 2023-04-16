@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="/assets/client-entry-02d155bb.css">
-      <title>vigor.js</title>
-    </head>
-    <body>
-      <div id="root"><div><header fixed="~" w="full" z="10" class="_bg-color_w94wm_22"><div flex="~" justify="between" items="center" class="px-8 h-14 divider-bottom"><div><a href="/" class="w-full h-full text-1rem flex items-center" hover="opacity-60">vigor.js</a></div><div flex="~"><div flex="~"></div><div></div><div class="_social-link-icon_w94wm_12"><a href="https://github.com/Flandre3569/vigor.js"><div class="i-carbon-logo-github w-5 h-5 fill-current"></div></a></div></div></div></header><div flex="~" h="full"><div w="1/2" h="full"><h1 class="_h1_2hjpi_1">404</h1><a inline-block="" border="1px solid brand" rounded="2xl" p="y-2 x-4" text="sm brand" font-medium="" href="/" aria-label="go to home" relative="~" class="left-58 top-20">Take me home</a></div><div relative="~" class="top-10"><img class="w-250 left-0" src="http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/404.png" alt="404"/></div></div></div></div>
-      <script type="module">function _mergeNamespaces(n2, m2) {
+function _mergeNamespaces(n2, m2) {
   for (var i = 0; i < m2.length; i++) {
     const e2 = m2[i];
     if (typeof e2 !== "string" && !Array.isArray(e2)) {
@@ -9467,7 +9456,3 @@ export {
   jsxs as a,
   jsx as j
 };
-</script>
-      <script src="/assets/client-entry-bb037446.js" type="module"></script>
-    </body>
-    </html>

@@ -10,12 +10,15 @@ import pluginReact from "@vitejs/plugin-react";
 import { pathToFileURL } from "url";
 import { SiteConfig } from "types";
 import { pluginConfig } from "./plugin/config";
+import { pluginIndexHtml } from "./plugin/indexHtml";
 
 import { pluginMdx } from "./plugin/plugin-mdx/index";
 import { Route, pluginRoutes } from "./plugin/plugin-routes";
 
 import pluginUnocss from "unocss/vite";
 import unocssOptions from "./unocssOptions";
+
+const CLIENT_OUTPUT = "build";
 
 // 依靠vite的打包工具
 export async function bundle(root: string, config: SiteConfig) {
@@ -26,6 +29,7 @@ export async function bundle(root: string, config: SiteConfig) {
     root,
     plugins: [
       pluginUnocss(unocssOptions),
+      pluginIndexHtml(),
       pluginReact(),
       pluginConfig(config),
       // 此处的isSSR和isServer其实是一个东西，但是用的结构符，所以名称需要和之前设定的一样
@@ -38,8 +42,9 @@ export async function bundle(root: string, config: SiteConfig) {
       noExternal: ["react-router-dom"],
     },
     build: {
+      minify: false,
       ssr: isServer,
-      outDir: isServer ? path.join(root, ".temp") : path.join(root, "build"),
+      outDir: isServer ? path.join(root, ".temp") : path.join(root, CLIENT_OUTPUT),
       rollupOptions: {
         input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
         output: {
@@ -69,6 +74,10 @@ export async function bundle(root: string, config: SiteConfig) {
       // server build
       viteBuild(await resolveViteConfig(true)),
     ]);
+    const publicDir = join(root, "public");
+    if (fs.pathExistsSync(publicDir)) {
+      await fs.copy(publicDir, join(root, CLIENT_OUTPUT));
+    }
     return [clientBundle, serverBundle] as [RollupOutput, RollupOutput];
   } catch (error) {
     console.log(error);
@@ -98,6 +107,10 @@ export async function renderPage(
       const routePath = route.path;
       // 拿到将html渲染为字符串的结果
       const appHtml = render(routePath);
+      const styleAssets = clientBundle.output.filter(
+        (chunk) => chunk.type === "asset" && chunk.fileName.endsWith(".css")
+      );
+      const code = clientBundle.output[0].code;
       const html = `
     <!DOCTYPE html>
     <html lang="en">
@@ -105,11 +118,13 @@ export async function renderPage(
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      ${styleAssets.map((item) => `<link rel="stylesheet" href="/${item.fileName}">`).join("\n")}
       <title>vigor.js</title>
     </head>
     <body>
       <div id="root">${appHtml}</div>
-      <script src="/${clientChunk.fileName}" type="module"></script>
+      <script type="module">${code}</script>
+      <script src="/${clientChunk?.fileName}" type="module"></script>
     </body>
     </html>
   `.trim();
