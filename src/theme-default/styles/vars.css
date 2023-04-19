@@ -24,6 +24,7 @@
   --vigor-c-azure-light: #35CFC6;
   --vigor-c-light-green: #4cd137;
   --vigor-c-deep-green: #44bd32;
+  --vigor-c-deep-mo-green: #008080;
 
   --vigor-c-grey-blue: #487eb0;
   --vigor-c-grey-deep-blue: #40739e;
@@ -34,6 +35,7 @@
 
   --vigor-c-mazaline-blue: #273c75;
   --vigor-c-pico-void-blue: #192a56;
+  --vigor-c-headling-blue: #001858;
 
   --vigor-c-light-black: #353b48;
   --vigor-c-grey-black: #2f3640;
@@ -42,8 +44,8 @@
 
   --vigor-c-divider-light-1: rgba(60, 60, 60, 0.12);
 
-  --vigor-c-progress-black-white: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
- 
+  --vigor-c-progress-pink-blue: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  --vigor-c-progress-black-white: linear-gradient(to right top, #070707, #100e19, #131326, #141833, #131c42, #1b2f57, #23436c, #2c5881, #55819d, #87aab9, #bed3d7, #f9fcfc);
 }
 :root {
   --vigor-font-family: Arial, sans-serif;
@@ -69,7 +71,7 @@
    --vigor-c-alt: var(--vigor-c-deep-grey);
  
    /* 标题配色 */
-   --vigor-c-title: var(--vigor-c-progress-black-white);
+   --vigor-c-title: var(--vigor-c-progress-pink-blue);
 
 }
 
@@ -90,4 +92,17 @@
 
   /* 404 - h1 */
   --vigor-c-404-h1: var(--vigor-c-grey-blue);
+}
+
+/* markdown doc配色 */
+:root {
+  --main-color: #008080; /* 主色调 */
+  --light-color: #f2f2f2; /* 浅色背景 */
+  --dark-color: #262626; /* 深色背景 */
+  --text-color: #333; /* 正文文本颜色 */
+  --link-color: #008080; /* 链接文本颜色 */
+
+  --vigor-c-lang: var(--vigor-c-soft-pink);
+
+  --vigor-c-h1-text: var(--vigor-c-headling-blue);
 }

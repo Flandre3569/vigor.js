@@ -5,6 +5,7 @@ import { Content } from "@runtime";
 import { NextPage } from "../../component/nextPage";
 import { TocComponent } from "../../component/toc";
 import styles from "./index.module.scss";
+import "./index.module.scss"
 
 export function DocPage() {
   const { siteData, toc } = useContextData();
@@ -28,16 +29,14 @@ export function DocPage() {
         <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
       </div>
       <div pt="22" w="3/4" className={styles.vigorDoc} flex="~">
-        <div w="2/3">
+        <div w="2/3" className="vigor-doc">
           <Content />
           <NextPage />
         </div>
-        
         <div className={styles.tocContainer} w="1/4" h="100vw" pl="20" >
           <TocComponent headers={toc}></TocComponent>
         </div>
       </div>
-      
     </div>
   );
 }

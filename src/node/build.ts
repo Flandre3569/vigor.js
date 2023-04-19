@@ -110,24 +110,23 @@ export async function renderPage(
       const styleAssets = clientBundle.output.filter(
         (chunk) => chunk.type === "asset" && chunk.fileName.endsWith(".css")
       );
-      const code = clientBundle.output[0].code;
+      // const code = clientBundle.output[0].code;
       const html = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      ${styleAssets.map((item) => `<link rel="stylesheet" href="/${item.fileName}">`).join("\n")}
-      <title>vigor.js</title>
-    </head>
-    <body>
-      <div id="root">${appHtml}</div>
-      <script type="module">${code}</script>
-      <script src="/${clientChunk?.fileName}" type="module"></script>
-    </body>
-    </html>
-  `.trim();
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        ${styleAssets.map((item) => `<link rel="stylesheet" href="/${item.fileName}">`).join("\n")}
+        <title>vigor.js</title>
+      </head>
+      <body>
+        <div id="root">${appHtml}</div>
+        <script src="/${clientChunk?.fileName}" type="module"></script>
+      </body>
+      </html>
+    `.trim();
       // 开始写入文件
       const fileName = routePath.endsWith("/") ? `${routePath}index.html` : `${routePath}.html`;
       await fs.ensureDir(join(root, "build", dirname(fileName)));
@@ -146,7 +145,7 @@ export async function build(root: string = process.cwd(), config: SiteConfig) {
   // bundle => client + server
   const [clientBundle] = await bundle(root, config);
   // 引入 server-entry 模块,也就是引入刚才打包生成的ssr产物
-  const serverEntryPath = `${PACKAGE_ROOT}/docs/.temp/ssr-entry.js`;
+  const serverEntryPath = join(root, ".temp", "ssr-entry.js");
   // 服务端渲染，产出HTML
   const { render, routes } = await import(pathToFileURL(serverEntryPath).toString()); // pathToFileURL是为了兼容windows的url格式
   try {
