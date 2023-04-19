@@ -1,6 +1,8 @@
 import { useContextData } from "@runtime";
 import { useLocation } from "react-router-dom";
 
+import styles from "./index.module.scss";
+
 export function getNextPageData() {
   // 拿到当前页面的路由
   const { pathname } = useLocation();
@@ -37,22 +39,22 @@ export function NextPage() {
 
   return (
     <footer>
-      <div flex="~" justify="between" p="10">
+      <div flex="~" justify="between" className="py-5">
         <div>
           {
             prevPage && 
-            <a href={prevPage.link}>
-                <span mr="5">上一页</span>
-                <span>{ prevPage.text }</span>
+            <a href={prevPage.link} className={`${styles.prevPage}`}>
+                <span mr="5" className={styles.prevPageTitle}>上一页</span>
+                <span className={ styles.prevPageContent }>{ prevPage.text }</span>
             </a>
           }
         </div>
         <div>
           {
             nextPage && 
-            <a href={nextPage.link}>
-                <span mr="5">下一页</span>
-                <span>{ nextPage.text} </span>
+            <a href={nextPage.link} className={`${styles.nextPage}`}>
+                <span mr="5" className={styles.nextPageTitle}>下一页</span>
+                <span className={styles.nextPageContent }>{ nextPage.text} </span>
             </a>
           }
         </div>

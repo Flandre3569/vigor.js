@@ -1,0 +1,43 @@
+.prev-page {
+  float: left;
+  border: 1px solid;
+  border-radius: 5px;
+  &:hover {
+    border-color: var(--vigor-c-nextPage-border);
+  }
+  transform: border-color 0.2s;
+  padding: 1vh 19vw 1vh 1vw; 
+}
+
+.next-page {
+  float: right;
+  border: 1px solid;
+  border-radius: 5px;
+  &:hover {
+    border-color: var(--vigor-c-nextPage-border);
+  }
+  transform: border-color 0.2s;
+  padding: 1vh 1vw 1vh 19vw;
+}
+
+.prev-page-title {
+  display: flex;
+  opacity: 70%;
+  font-size: 0.8rem;
+}
+
+.next-page-title {
+  display: flex;
+  opacity: 70%;
+  font-size: 0.8rem;
+}
+
+.prev-page-content {
+  font-size: 0.9rem;
+  color: var(--vigor-c-nextPage-content);
+}
+
+.next-page-content {
+  color: var(--vigor-c-nextPage-content);
+  font-size: 0.9rem;
+}

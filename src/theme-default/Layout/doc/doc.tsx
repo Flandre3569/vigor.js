@@ -30,8 +30,12 @@ export function DocPage() {
       </div>
       <div pt="22" w="3/4" className={styles.vigorDoc} flex="~">
         <div w="2/3" className="vigor-doc">
-          <Content />
-          <NextPage />
+          <div className="divider-bottom">
+            <Content />
+          </div>
+          <div>
+            <NextPage />
+          </div>
         </div>
         <div className={styles.tocContainer} w="1/4" h="100vw" pl="20" >
           <TocComponent headers={toc}></TocComponent>

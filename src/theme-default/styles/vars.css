@@ -105,4 +105,7 @@
   --vigor-c-lang: var(--vigor-c-soft-pink);
 
   --vigor-c-h1-text: var(--vigor-c-headling-blue);
+
+  --vigor-c-nextPage-content: var(--vigor-c-deep-mo-green);
+  --vigor-c-nextPage-border: var(--vigor-c-deep-mo-green);
 }
