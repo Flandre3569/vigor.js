@@ -1,4 +1,4 @@
-import { j as jsx, F as Fragment } from "./client-entry-bb037446.js";
+import { j as jsx, F as Fragment } from "./client-entry-8cfffbf2.js";
 const frontmatter = {
   "pageType": "home",
   "hero": {

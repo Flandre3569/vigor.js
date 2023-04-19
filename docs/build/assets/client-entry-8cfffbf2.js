@@ -9060,17 +9060,17 @@ var loadable$2 = loadable;
 loadable$2.lib = loadable$1;
 var lazy$2 = lazy;
 lazy$2.lib = lazy$1;
-const Route0 = loadable$2(() => __vitePreload(() => import("./b-65f5e68a.js"), true ? [] : void 0));
-const Route1 = loadable$2(() => __vitePreload(() => import("./a-f0924c2b.js"), true ? [] : void 0));
-const Route2 = loadable$2(() => __vitePreload(() => import("./b-899285aa.js"), true ? [] : void 0));
-const Route3 = loadable$2(() => __vitePreload(() => import("./c-2aea3c76.js"), true ? [] : void 0));
-const Route4 = loadable$2(() => __vitePreload(() => import("./index-27539f7c.js"), true ? [] : void 0));
+const Route0 = loadable$2(() => __vitePreload(() => import("./b-4ad7985b.js"), true ? [] : void 0));
+const Route1 = loadable$2(() => __vitePreload(() => import("./a-f8b3d45f.js"), true ? [] : void 0));
+const Route2 = loadable$2(() => __vitePreload(() => import("./b-b333cc8c.js"), true ? [] : void 0));
+const Route3 = loadable$2(() => __vitePreload(() => import("./c-659febec.js"), true ? [] : void 0));
+const Route4 = loadable$2(() => __vitePreload(() => import("./index-15dfde3c.js"), true ? [] : void 0));
 const routes = [
-  { path: "/b", element: React.createElement(Route0), preload: () => __vitePreload(() => import("./b-65f5e68a.js"), true ? [] : void 0) },
-  { path: "/guide/a", element: React.createElement(Route1), preload: () => __vitePreload(() => import("./a-f0924c2b.js"), true ? [] : void 0) },
-  { path: "/guide/b", element: React.createElement(Route2), preload: () => __vitePreload(() => import("./b-899285aa.js"), true ? [] : void 0) },
-  { path: "/guide/c", element: React.createElement(Route3), preload: () => __vitePreload(() => import("./c-2aea3c76.js"), true ? [] : void 0) },
-  { path: "/", element: React.createElement(Route4), preload: () => __vitePreload(() => import("./index-27539f7c.js"), true ? [] : void 0) }
+  { path: "/b", element: React.createElement(Route0), preload: () => __vitePreload(() => import("./b-4ad7985b.js"), true ? [] : void 0) },
+  { path: "/guide/a", element: React.createElement(Route1), preload: () => __vitePreload(() => import("./a-f8b3d45f.js"), true ? [] : void 0) },
+  { path: "/guide/b", element: React.createElement(Route2), preload: () => __vitePreload(() => import("./b-b333cc8c.js"), true ? [] : void 0) },
+  { path: "/guide/c", element: React.createElement(Route3), preload: () => __vitePreload(() => import("./c-659febec.js"), true ? [] : void 0) },
+  { path: "/", element: React.createElement(Route4), preload: () => __vitePreload(() => import("./index-15dfde3c.js"), true ? [] : void 0) }
 ];
 const siteData = { "title": "123", "description": "A SSG framework.", "themeConfig": { "nav": [{ "text": "主页", "link": "/" }, { "text": "指南", "link": "/guide/a" }], "sidebar": { "/guide/": [{ "text": "教程", "items": [{ "text": "快速上手", "link": "/guide/a" }, { "text": "如何安装", "link": "/guide/b" }, { "text": "操作指南", "link": "/guide/c" }] }] } }, "vite": {} };
 const Content = () => {
@@ -9087,14 +9087,14 @@ const __uno = "";
 const link$1 = "_link_w94wm_1";
 const socialLinkIcon = "_social-link-icon_w94wm_12";
 const bgColor = "_bg-color_w94wm_22";
-const styles$8 = {
+const styles$9 = {
   link: link$1,
   socialLinkIcon,
   bgColor
 };
 const GITHUB_LINK_HREF = "https://github.com/Flandre3569/vigor.js";
 function MenuItem(item2) {
-  return /* @__PURE__ */ jsx("div", { className: "text-sm font-medium mx-3", children: /* @__PURE__ */ jsxs("a", { href: item2.link, className: styles$8.link, children: [
+  return /* @__PURE__ */ jsx("div", { className: "text-sm font-medium mx-3", children: /* @__PURE__ */ jsxs("a", { href: item2.link, className: styles$9.link, children: [
     " ",
     item2.text,
     " "
@@ -9104,17 +9104,17 @@ function Nav() {
   var _a;
   const { siteData: siteData2 } = useContextData();
   const nav = ((_a = siteData2 == null ? void 0 : siteData2.themeConfig) == null ? void 0 : _a.nav) || [];
-  return /* @__PURE__ */ jsx("header", { fixed: "~", w: "full", z: "10", className: styles$8.bgColor, children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", items: "center", className: "px-8 h-14 divider-bottom", children: [
+  return /* @__PURE__ */ jsx("header", { fixed: "~", w: "full", z: "10", className: styles$9.bgColor, children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", items: "center", className: "px-8 h-14 divider-bottom", children: [
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("a", { href: "/", className: "w-full h-full text-1rem flex items-center", hover: "opacity-60", children: "vigor.js" }) }),
     /* @__PURE__ */ jsxs("div", { flex: "~", children: [
       /* @__PURE__ */ jsx("div", { flex: "~", children: nav.map((item2) => /* @__PURE__ */ reactExports.createElement(MenuItem, { ...item2, key: item2.text })) }),
       /* @__PURE__ */ jsx("div", {}),
-      /* @__PURE__ */ jsx("div", { className: styles$8.socialLinkIcon, children: /* @__PURE__ */ jsx("a", { href: GITHUB_LINK_HREF, children: /* @__PURE__ */ jsx("div", { className: "i-carbon-logo-github w-5 h-5 fill-current" }) }) })
+      /* @__PURE__ */ jsx("div", { className: styles$9.socialLinkIcon, children: /* @__PURE__ */ jsx("a", { href: GITHUB_LINK_HREF, children: /* @__PURE__ */ jsx("div", { className: "i-carbon-logo-github w-5 h-5 fill-current" }) }) })
     ] })
   ] }) });
 }
 const link = "_link_h8tgh_1";
-const styles$7 = {
+const styles$8 = {
   link
 };
 const EXTERNAL_URL = /^https?/;
@@ -9123,7 +9123,7 @@ function Link(props) {
   const isExternal = EXTERNAL_URL.test(href);
   const target = isExternal ? "_blank" : "";
   const rel = isExternal ? "noopener noreferrer" : void 0;
-  return /* @__PURE__ */ jsxs("a", { href, rel, target, className: `${className} ${styles$7.link}`, children: [
+  return /* @__PURE__ */ jsxs("a", { href, rel, target, className: `${className} ${styles$8.link}`, children: [
     children,
     " "
   ] });
@@ -9133,7 +9133,7 @@ const medium = "_medium_5uvhl_14";
 const big = "_big_5uvhl_21";
 const brand = "_brand_5uvhl_28";
 const alt = "_alt_5uvhl_32";
-const styles$6 = {
+const styles$7 = {
   button,
   medium,
   big,
@@ -9158,13 +9158,13 @@ function Button(props) {
     type ?? "a",
     {
       href,
-      className: `${styles$6.button} ${styles$6[size]} ${styles$6[theme]} ${className}`
+      className: `${styles$7.button} ${styles$7[size]} ${styles$7[theme]} ${className}`
     },
     props.text
   );
 }
 const title = "_title_1xxnm_1";
-const styles$5 = {
+const styles$6 = {
   title
 };
 function HeroComponent(props) {
@@ -9172,7 +9172,7 @@ function HeroComponent(props) {
   return /* @__PURE__ */ jsxs("div", { flex: "~", children: [
     /* @__PURE__ */ jsxs("div", { className: "w-1/2", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("h1", { className: "text-5xl font-semibold pb-5", children: /* @__PURE__ */ jsxs("span", { className: styles$5.title, children: [
+        /* @__PURE__ */ jsx("h1", { className: "text-5xl font-semibold pb-5", children: /* @__PURE__ */ jsxs("span", { className: styles$6.title, children: [
           " ",
           hero.name,
           " "
@@ -9203,7 +9203,7 @@ function HeroComponent(props) {
 }
 const bg = "_bg_16d6n_1";
 const iconBg = "_icon-bg_16d6n_7";
-const styles$4 = {
+const styles$5 = {
   bg,
   iconBg
 };
@@ -9214,8 +9214,8 @@ function FeatureComponent(props) {
       details,
       icon = ""
     } = feature;
-    return /* @__PURE__ */ jsx("div", { border: "rounded-md", pb: "1.3%", w: "32.4%", children: /* @__PURE__ */ jsxs("article", { p: "6", className: styles$4.bg, "h-full": "true", children: [
-      /* @__PURE__ */ jsx("div", { className: `flex-center text-3xl w-13 h-11 ${styles$4.iconBg}`, border: "rounded-xl solid", children: icon }),
+    return /* @__PURE__ */ jsx("div", { border: "rounded-md", pb: "1.3%", w: "32.4%", children: /* @__PURE__ */ jsxs("article", { p: "6", className: styles$5.bg, "h-full": "true", children: [
+      /* @__PURE__ */ jsx("div", { className: `flex-center text-3xl w-13 h-11 ${styles$5.iconBg}`, border: "rounded-xl solid", children: icon }),
       /* @__PURE__ */ jsx("h2", { className: "font-semibold py-4", children: title2 }),
       /* @__PURE__ */ jsx("p", { className: "text-3.5 font-medium opacity-90", children: details })
     ] }) }, title2);
@@ -9231,7 +9231,7 @@ function HomePage() {
 const sidebar = "_sidebar_byf93_1";
 const itemOnfocus = "_item-onfocus_byf93_15";
 const item = "_item_byf93_15";
-const styles$3 = {
+const styles$4 = {
   sidebar,
   itemOnfocus,
   item
@@ -9240,7 +9240,7 @@ function Sidebar(props) {
   const { sidebarData, pathname } = props;
   const renderItem = (item2) => {
     const onFocus = item2.link === pathname;
-    return /* @__PURE__ */ jsx("div", { pl: "2", pt: "2", children: /* @__PURE__ */ jsx("div", { className: `${onFocus ? styles$3.itemOnfocus : styles$3.item}`, children: /* @__PURE__ */ jsx(Link, { href: item2.link, children: item2.text }) }) });
+    return /* @__PURE__ */ jsx("div", { pl: "2", pt: "2", children: /* @__PURE__ */ jsx("div", { className: `${onFocus ? styles$4.itemOnfocus : styles$4.item}`, children: /* @__PURE__ */ jsx(Link, { href: item2.link, children: item2.text }) }) });
   };
   const renderItems = (item2) => {
     var _a;
@@ -9249,8 +9249,22 @@ function Sidebar(props) {
       /* @__PURE__ */ jsx("div", { children: (_a = item2.items) == null ? void 0 : _a.map((item22) => /* @__PURE__ */ jsx("div", { children: renderItem(item22) }, item22.link)) })
     ] }, item2.text);
   };
-  return /* @__PURE__ */ jsx("aside", { className: styles$3.sidebar, children: /* @__PURE__ */ jsx("nav", { children: sidebarData.map(renderItems) }) });
+  return /* @__PURE__ */ jsx("aside", { className: styles$4.sidebar, children: /* @__PURE__ */ jsx("nav", { children: sidebarData.map(renderItems) }) });
 }
+const prevPage = "_prev-page_1iinb_1";
+const nextPage = "_next-page_1iinb_12";
+const prevPageTitle = "_prev-page-title_1iinb_23";
+const nextPageTitle = "_next-page-title_1iinb_29";
+const prevPageContent = "_prev-page-content_1iinb_35";
+const nextPageContent = "_next-page-content_1iinb_40";
+const styles$3 = {
+  prevPage,
+  nextPage,
+  prevPageTitle,
+  nextPageTitle,
+  prevPageContent,
+  nextPageContent
+};
 function getNextPageData() {
   var _a;
   const { pathname } = useLocation();
@@ -9266,24 +9280,24 @@ function getNextPageData() {
     });
   });
   const pageIndex = itemArray.findIndex((item2) => item2.link === pathname);
-  const prevPage = itemArray[pageIndex - 1] || null;
-  const nextPage = itemArray[pageIndex + 1] || null;
+  const prevPage2 = itemArray[pageIndex - 1] || null;
+  const nextPage2 = itemArray[pageIndex + 1] || null;
   return {
-    prevPage,
-    nextPage
+    prevPage: prevPage2,
+    nextPage: nextPage2
   };
 }
 function NextPage() {
-  const { prevPage, nextPage } = getNextPageData();
-  return /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", p: "10", children: [
-    /* @__PURE__ */ jsx("div", { children: prevPage && /* @__PURE__ */ jsxs("a", { href: prevPage.link, children: [
-      /* @__PURE__ */ jsx("span", { mr: "5", children: "上一页" }),
-      /* @__PURE__ */ jsx("span", { children: prevPage.text })
+  const { prevPage: prevPage2, nextPage: nextPage2 } = getNextPageData();
+  return /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", className: "py-5", children: [
+    /* @__PURE__ */ jsx("div", { children: prevPage2 && /* @__PURE__ */ jsxs("a", { href: prevPage2.link, className: `${styles$3.prevPage}`, children: [
+      /* @__PURE__ */ jsx("span", { mr: "5", className: styles$3.prevPageTitle, children: "上一页" }),
+      /* @__PURE__ */ jsx("span", { className: styles$3.prevPageContent, children: prevPage2.text })
     ] }) }),
-    /* @__PURE__ */ jsx("div", { children: nextPage && /* @__PURE__ */ jsxs("a", { href: nextPage.link, children: [
-      /* @__PURE__ */ jsx("span", { mr: "5", children: "下一页" }),
-      /* @__PURE__ */ jsxs("span", { children: [
-        nextPage.text,
+    /* @__PURE__ */ jsx("div", { children: nextPage2 && /* @__PURE__ */ jsxs("a", { href: nextPage2.link, className: `${styles$3.nextPage}`, children: [
+      /* @__PURE__ */ jsx("span", { mr: "5", className: styles$3.nextPageTitle, children: "下一页" }),
+      /* @__PURE__ */ jsxs("span", { className: styles$3.nextPageContent, children: [
+        nextPage2.text,
         " "
       ] })
     ] }) })
@@ -9338,13 +9352,21 @@ function TocComponent(props) {
     /* @__PURE__ */ jsx("nav", { children: /* @__PURE__ */ jsx("ul", { relative: "~", children: headers.map(renderToc) }) })
   ] }) }) });
 }
-const vigorDoc = "_vigor-doc_1q9u2_1";
-const headerAnchor = "_header-anchor_1q9u2_34";
-const tocContainer = "_toc-container_1q9u2_43";
+const vigorDoc$1 = "_vigor-doc_1vfmz_2";
+const tocContainer$1 = "_toc-container_1vfmz_36";
+const headerAnchor$1 = "_header-anchor_1vfmz_45";
 const styles$1 = {
+  vigorDoc: vigorDoc$1,
+  tocContainer: tocContainer$1,
+  headerAnchor: headerAnchor$1
+};
+const vigorDoc = "_vigor-doc_1vfmz_2";
+const tocContainer = "_toc-container_1vfmz_36";
+const headerAnchor = "_header-anchor_1vfmz_45";
+const index_module = {
   vigorDoc,
-  headerAnchor,
-  tocContainer
+  tocContainer,
+  headerAnchor
 };
 function DocPage() {
   var _a;
@@ -9360,9 +9382,9 @@ function DocPage() {
   return /* @__PURE__ */ jsxs("div", { flex: "~", children: [
     /* @__PURE__ */ jsx("div", { w: "1/4", children: /* @__PURE__ */ jsx(Sidebar, { sidebarData: matchedSidebar, pathname }) }),
     /* @__PURE__ */ jsxs("div", { pt: "22", w: "3/4", className: styles$1.vigorDoc, flex: "~", children: [
-      /* @__PURE__ */ jsxs("div", { w: "2/3", children: [
-        /* @__PURE__ */ jsx(Content, {}),
-        /* @__PURE__ */ jsx(NextPage, {})
+      /* @__PURE__ */ jsxs("div", { w: "2/3", className: "vigor-doc", children: [
+        /* @__PURE__ */ jsx("div", { className: "divider-bottom", children: /* @__PURE__ */ jsx(Content, {}) }),
+        /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(NextPage, {}) })
       ] }),
       /* @__PURE__ */ jsx("div", { className: styles$1.tocContainer, w: "1/4", h: "100vw", pl: "20", children: /* @__PURE__ */ jsx(TocComponent, { headers: toc }) })
     ] })
