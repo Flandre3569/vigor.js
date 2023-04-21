@@ -1,4 +1,4 @@
-import { j as jsx } from "./client-entry-21e7c095.js";
+import { j as jsx } from "./client-entry-69545cbd.js";
 function B() {
   return /* @__PURE__ */ jsx("div", { children: "B 页面" });
 }

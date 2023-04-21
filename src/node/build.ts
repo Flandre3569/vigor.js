@@ -98,6 +98,11 @@ export async function renderPage(
   // 拼接为真正的html页面
   console.log("Rendering page in server side...");
 
+  // 自动化注入head
+  const helmetContext = {
+    context: {},
+  } as HelmetData;
+
   // 多路由打包
   await Promise.all(
     [
@@ -107,9 +112,7 @@ export async function renderPage(
       },
     ].map(async (route) => {
       const routePath = route.path;
-      const helmetContext = {
-        context: {},
-      } as HelmetData;
+
       // 拿到将html渲染为字符串的结果
       const appHtml = render(routePath, helmetContext.context);
       const styleAssets = clientBundle.output.filter(
@@ -130,7 +133,6 @@ export async function renderPage(
         ${helmet?.style?.toString() || ""}
         <meta name="description" content="xxx">
         ${styleAssets.map((item) => `<link rel="stylesheet" href="/${item.fileName}">`).join("\n")}
-        <title>vigor.js</title>
       </head>
       <body>
         <div id="root">${appHtml}</div>

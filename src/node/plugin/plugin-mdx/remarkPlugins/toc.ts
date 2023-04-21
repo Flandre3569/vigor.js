@@ -18,15 +18,13 @@ interface ChildNode {
   children?: ChildNode[];
 }
 
-// 初始化slugger
-const slugger = new Slugger();
-
-let title = "";
-
 export const TOCPlugin: Plugin<[], Root> = () => {
   return (tree) => {
     // 初始化toc数组
     const tocTree: TocItem[] = [];
+    // 初始化slugger
+    const slugger = new Slugger();
+    let title = "";
     visit(tree, "heading", (node) => {
       if (!node.depth || !node.children) {
         return;

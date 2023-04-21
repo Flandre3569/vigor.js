@@ -1,31 +1,31 @@
-import { j as jsx, a as jsxs, F as Fragment } from "./client-entry-21e7c095.js";
+import { j as jsx, a as jsxs, F as Fragment } from "./client-entry-69545cbd.js";
 const frontmatter = void 0;
 const toc = [{
-  "id": "背景介绍-1",
+  "id": "背景介绍",
   "text": "背景介绍：",
   "depth": 2
 }, {
-  "id": "框架区别-1",
+  "id": "框架区别",
   "text": "框架区别：",
   "depth": 2
 }, {
-  "id": "1-源码方面-1",
+  "id": "1-源码方面",
   "text": "1. 源码方面：",
   "depth": 3
 }, {
-  "id": "2-结构方面-1",
+  "id": "2-结构方面",
   "text": "2. 结构方面：",
   "depth": 3
 }, {
-  "id": "框架使用-1",
+  "id": "框架使用",
   "text": "框架使用：",
   "depth": 2
 }, {
-  "id": "express-1",
+  "id": "express",
   "text": "express：",
   "depth": 3
 }, {
-  "id": "koa-1",
+  "id": "koa",
   "text": "koa：",
   "depth": 3
 }];

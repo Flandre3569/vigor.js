@@ -12,7 +12,6 @@ export async function initPageData(routePath: string): Promise<PageData> {
     const route = matched[0].route as Route;
     // 获取路由组件编译后的模块内容
     const moduleInfo = await route.preload();
-    console.log(moduleInfo);
     return {
       title: moduleInfo.title,
       pageType: moduleInfo?.frontmatter?.pageType ?? "doc",

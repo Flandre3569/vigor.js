@@ -7,8 +7,8 @@ import { HelmetProvider } from 'react-helmet-async';
 
 
 // SSR渲染器
-export function render(pagePath: string, helmetContext: object) {
-  const pageData = initPageData(pagePath);
+export async function render(pagePath: string, helmetContext: object) {
+  const pageData = await initPageData(pagePath);
   return renderToString(
     <HelmetProvider context={helmetContext}>
       <contextData.Provider value={pageData}>

@@ -9060,17 +9060,17 @@ var loadable$2 = loadable;
 loadable$2.lib = loadable$1;
 var lazy$2 = lazy;
 lazy$2.lib = lazy$1;
-const Route0 = loadable$2(() => __vitePreload(() => import("./b-782e8ce3.js"), true ? [] : void 0));
-const Route1 = loadable$2(() => __vitePreload(() => import("./a-7cf8fee4.js"), true ? [] : void 0));
-const Route2 = loadable$2(() => __vitePreload(() => import("./b-a3833d10.js"), true ? [] : void 0));
-const Route3 = loadable$2(() => __vitePreload(() => import("./c-892637d0.js"), true ? [] : void 0));
-const Route4 = loadable$2(() => __vitePreload(() => import("./index-2b5b886f.js"), true ? [] : void 0));
+const Route0 = loadable$2(() => __vitePreload(() => import("./b-7cc154e7.js"), true ? [] : void 0));
+const Route1 = loadable$2(() => __vitePreload(() => import("./a-80613b13.js"), true ? [] : void 0));
+const Route2 = loadable$2(() => __vitePreload(() => import("./b-4061bd9d.js"), true ? [] : void 0));
+const Route3 = loadable$2(() => __vitePreload(() => import("./c-561d9a4b.js"), true ? [] : void 0));
+const Route4 = loadable$2(() => __vitePreload(() => import("./index-049411c8.js"), true ? [] : void 0));
 const routes = [
-  { path: "/b", element: t$1.createElement(Route0), preload: () => __vitePreload(() => import("./b-782e8ce3.js"), true ? [] : void 0) },
-  { path: "/guide/a", element: t$1.createElement(Route1), preload: () => __vitePreload(() => import("./a-7cf8fee4.js"), true ? [] : void 0) },
-  { path: "/guide/b", element: t$1.createElement(Route2), preload: () => __vitePreload(() => import("./b-a3833d10.js"), true ? [] : void 0) },
-  { path: "/guide/c", element: t$1.createElement(Route3), preload: () => __vitePreload(() => import("./c-892637d0.js"), true ? [] : void 0) },
-  { path: "/", element: t$1.createElement(Route4), preload: () => __vitePreload(() => import("./index-2b5b886f.js"), true ? [] : void 0) }
+  { path: "/b", element: t$1.createElement(Route0), preload: () => __vitePreload(() => import("./b-7cc154e7.js"), true ? [] : void 0) },
+  { path: "/guide/a", element: t$1.createElement(Route1), preload: () => __vitePreload(() => import("./a-80613b13.js"), true ? [] : void 0) },
+  { path: "/guide/b", element: t$1.createElement(Route2), preload: () => __vitePreload(() => import("./b-4061bd9d.js"), true ? [] : void 0) },
+  { path: "/guide/c", element: t$1.createElement(Route3), preload: () => __vitePreload(() => import("./c-561d9a4b.js"), true ? [] : void 0) },
+  { path: "/", element: t$1.createElement(Route4), preload: () => __vitePreload(() => import("./index-049411c8.js"), true ? [] : void 0) }
 ];
 const siteData = { "title": "123", "description": "A SSG framework.", "themeConfig": { "nav": [{ "text": "主页", "link": "/" }, { "text": "指南", "link": "/guide/a" }], "sidebar": { "/guide/": [{ "text": "教程", "items": [{ "text": "快速上手", "link": "/guide/a" }, { "text": "如何安装", "link": "/guide/b" }, { "text": "操作指南", "link": "/guide/c" }] }] } }, "vite": {} };
 const Content = () => {
@@ -9087,14 +9087,14 @@ const __uno = "";
 const link$1 = "_link_w94wm_1";
 const socialLinkIcon = "_social-link-icon_w94wm_12";
 const bgColor = "_bg-color_w94wm_22";
-const styles$9 = {
+const styles$a = {
   link: link$1,
   socialLinkIcon,
   bgColor
 };
 const GITHUB_LINK_HREF = "https://github.com/Flandre3569/vigor.js";
 function MenuItem(item2) {
-  return /* @__PURE__ */ jsx("div", { className: "text-sm font-medium mx-3", children: /* @__PURE__ */ jsxs("a", { href: item2.link, className: styles$9.link, children: [
+  return /* @__PURE__ */ jsx("div", { className: "text-sm font-medium mx-3", children: /* @__PURE__ */ jsxs("a", { href: item2.link, className: styles$a.link, children: [
     " ",
     item2.text,
     " "
@@ -9104,17 +9104,17 @@ function Nav() {
   var _a;
   const { siteData: siteData2 } = useContextData();
   const nav = ((_a = siteData2 == null ? void 0 : siteData2.themeConfig) == null ? void 0 : _a.nav) || [];
-  return /* @__PURE__ */ jsx("header", { fixed: "~", w: "full", z: "10", className: styles$9.bgColor, children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", items: "center", className: "px-8 h-14 divider-bottom", children: [
+  return /* @__PURE__ */ jsx("header", { fixed: "~", w: "full", z: "10", className: styles$a.bgColor, children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", items: "center", className: "px-8 h-14 divider-bottom", children: [
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("a", { href: "/", className: "w-full h-full text-1rem flex items-center", hover: "opacity-60", children: "vigor.js" }) }),
     /* @__PURE__ */ jsxs("div", { flex: "~", children: [
       /* @__PURE__ */ jsx("div", { flex: "~", children: nav.map((item2) => /* @__PURE__ */ reactExports.createElement(MenuItem, { ...item2, key: item2.text })) }),
       /* @__PURE__ */ jsx("div", {}),
-      /* @__PURE__ */ jsx("div", { className: styles$9.socialLinkIcon, children: /* @__PURE__ */ jsx("a", { href: GITHUB_LINK_HREF, children: /* @__PURE__ */ jsx("div", { className: "i-carbon-logo-github w-5 h-5 fill-current" }) }) })
+      /* @__PURE__ */ jsx("div", { className: styles$a.socialLinkIcon, children: /* @__PURE__ */ jsx("a", { href: GITHUB_LINK_HREF, children: /* @__PURE__ */ jsx("div", { className: "i-carbon-logo-github w-5 h-5 fill-current" }) }) })
     ] })
   ] }) });
 }
 const link = "_link_h8tgh_1";
-const styles$8 = {
+const styles$9 = {
   link
 };
 const EXTERNAL_URL = /^https?/;
@@ -9123,7 +9123,7 @@ function Link(props) {
   const isExternal = EXTERNAL_URL.test(href);
   const target = isExternal ? "_blank" : "";
   const rel = isExternal ? "noopener noreferrer" : void 0;
-  return /* @__PURE__ */ jsxs("a", { href, rel, target, className: `${className} ${styles$8.link}`, children: [
+  return /* @__PURE__ */ jsxs("a", { href, rel, target, className: `${className} ${styles$9.link}`, children: [
     children,
     " "
   ] });
@@ -9133,7 +9133,7 @@ const medium = "_medium_5uvhl_14";
 const big = "_big_5uvhl_21";
 const brand = "_brand_5uvhl_28";
 const alt = "_alt_5uvhl_32";
-const styles$7 = {
+const styles$8 = {
   button,
   medium,
   big,
@@ -9158,13 +9158,13 @@ function Button(props) {
     type ?? "a",
     {
       href,
-      className: `${styles$7.button} ${styles$7[size]} ${styles$7[theme]} ${className}`
+      className: `${styles$8.button} ${styles$8[size]} ${styles$8[theme]} ${className}`
     },
     props.text
   );
 }
 const title = "_title_1xxnm_1";
-const styles$6 = {
+const styles$7 = {
   title
 };
 function HeroComponent(props) {
@@ -9172,7 +9172,7 @@ function HeroComponent(props) {
   return /* @__PURE__ */ jsxs("div", { flex: "~", children: [
     /* @__PURE__ */ jsxs("div", { className: "w-1/2", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("h1", { className: "text-5xl font-semibold pb-5", children: /* @__PURE__ */ jsxs("span", { className: styles$6.title, children: [
+        /* @__PURE__ */ jsx("h1", { className: "text-5xl font-semibold pb-5", children: /* @__PURE__ */ jsxs("span", { className: styles$7.title, children: [
           " ",
           hero.name,
           " "
@@ -9203,29 +9203,44 @@ function HeroComponent(props) {
 }
 const bg = "_bg_16d6n_1";
 const iconBg = "_icon-bg_16d6n_7";
-const styles$5 = {
+const styles$6 = {
   bg,
   iconBg
 };
 function FeatureComponent(props) {
-  return /* @__PURE__ */ jsx("div", { flex: "~ wrap", justify: "between", pt: "20", children: props.features.map((feature) => {
+  return /* @__PURE__ */ jsx("div", { flex: "~ wrap", justify: "between", pt: "20", className: "divider-bottom pb-10", children: props.features.map((feature) => {
     const {
       title: title2,
       details,
       icon = ""
     } = feature;
-    return /* @__PURE__ */ jsx("div", { border: "rounded-md", pb: "1.3%", w: "32.4%", children: /* @__PURE__ */ jsxs("article", { p: "6", className: styles$5.bg, "h-full": "true", children: [
-      /* @__PURE__ */ jsx("div", { className: `flex-center text-3xl w-13 h-11 ${styles$5.iconBg}`, border: "rounded-xl solid", children: icon }),
+    return /* @__PURE__ */ jsx("div", { border: "rounded-md", pb: "1.3%", w: "32.4%", children: /* @__PURE__ */ jsxs("article", { p: "6", className: styles$6.bg, "h-full": "true", children: [
+      /* @__PURE__ */ jsx("div", { className: `flex-center text-3xl w-13 h-11 ${styles$6.iconBg}`, border: "rounded-xl solid", children: icon }),
       /* @__PURE__ */ jsx("h2", { className: "font-semibold py-4", children: title2 }),
       /* @__PURE__ */ jsx("p", { className: "text-3.5 font-medium opacity-90", children: details })
     ] }) }, title2);
   }) });
 }
+const footer = "_footer_p3j6k_1";
+const styles$5 = {
+  footer
+};
+function FooterComponent(props) {
+  const { footer: footer2 } = props;
+  return /* @__PURE__ */ jsxs("div", { className: `py-5 ${styles$5.footer}`, children: [
+    /* @__PURE__ */ jsx("p", { className: "flex-center", children: footer2.message }),
+    /* @__PURE__ */ jsxs("span", { className: "flex-center", children: [
+      "Copyright © 2023-present ",
+      footer2.copyright
+    ] })
+  ] });
+}
 function HomePage() {
   const { frontmatter } = useContextData();
-  return /* @__PURE__ */ jsxs("div", { className: "px-24 pt-30 pb-10", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "px-24 pt-30", children: [
     /* @__PURE__ */ jsx(HeroComponent, { hero: frontmatter.hero }),
-    /* @__PURE__ */ jsx(FeatureComponent, { features: frontmatter.features })
+    /* @__PURE__ */ jsx(FeatureComponent, { features: frontmatter.features }),
+    /* @__PURE__ */ jsx(FooterComponent, { footer: frontmatter.footer })
   ] });
 }
 const sidebar = "_sidebar_byf93_1";
@@ -10003,7 +10018,6 @@ async function initPageData(routePath) {
   if (matched) {
     const route = matched[0].route;
     const moduleInfo = await route.preload();
-    console.log(moduleInfo);
     return {
       title: moduleInfo.title,
       pageType: ((_a = moduleInfo == null ? void 0 : moduleInfo.frontmatter) == null ? void 0 : _a.pageType) ?? "doc",

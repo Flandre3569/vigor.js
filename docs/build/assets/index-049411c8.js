@@ -1,4 +1,4 @@
-import { j as jsx, F as Fragment } from "./client-entry-21e7c095.js";
+import { j as jsx, F as Fragment } from "./client-entry-69545cbd.js";
 const frontmatter = {
   "pageType": "home",
   "hero": {
@@ -43,10 +43,13 @@ const frontmatter = {
     "title": "React: 用于构建用户界面的JavaScript库",
     "details": "React 是一种开源框架，用于创建用户界面。 它最常用于创建 Web 应用程序。",
     "icon": "🍕"
-  }]
+  }],
+  "footer": {
+    "copyright": "sungMoon",
+    "message": "欢迎访问我的网页"
+  }
 };
 const toc = [];
-const title = "Koa vs Express";
 function _createMdxContent(props) {
   return jsx(Fragment, {});
 }
@@ -59,6 +62,5 @@ function MDXContent(props = {}) {
 export {
   MDXContent as default,
   frontmatter,
-  title,
   toc
 };

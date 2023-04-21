@@ -795,7 +795,7 @@ const toc$1 = [{
   "text": "koa：",
   "depth": 3
 }];
-const title$2 = "Koa vs Express";
+const title$1 = "Koa vs Express";
 function _createMdxContent$1(props) {
   const _components = Object.assign({
     h1: "h1",
@@ -1205,7 +1205,7 @@ const a = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: MDXContent$1,
   frontmatter: frontmatter$1,
-  title: title$2,
+  title: title$1,
   toc: toc$1
 }, Symbol.toStringTag, { value: "Module" }));
 function B() {
@@ -1266,10 +1266,13 @@ const frontmatter = {
     "title": "React: 用于构建用户界面的JavaScript库",
     "details": "React 是一种开源框架，用于创建用户界面。 它最常用于创建 Web 应用程序。",
     "icon": "🍕"
-  }]
+  }],
+  "footer": {
+    "copyright": "sungMoon",
+    "message": "欢迎访问我的网页"
+  }
 };
 const toc = [];
-const title$1 = "Koa vs Express";
 function _createMdxContent(props) {
   return jsx(Fragment, {});
 }
@@ -1283,7 +1286,6 @@ const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
   __proto__: null,
   default: MDXContent,
   frontmatter,
-  title: title$1,
   toc
 }, Symbol.toStringTag, { value: "Module" }));
 const routes = [
@@ -1308,14 +1310,14 @@ const __uno = "";
 const link$1 = "_link_w94wm_1";
 const socialLinkIcon = "_social-link-icon_w94wm_12";
 const bgColor = "_bg-color_w94wm_22";
-const styles$9 = {
+const styles$a = {
   link: link$1,
   socialLinkIcon,
   bgColor
 };
 const GITHUB_LINK_HREF = "https://github.com/Flandre3569/vigor.js";
 function MenuItem(item2) {
-  return /* @__PURE__ */ jsx("div", { className: "text-sm font-medium mx-3", children: /* @__PURE__ */ jsxs("a", { href: item2.link, className: styles$9.link, children: [
+  return /* @__PURE__ */ jsx("div", { className: "text-sm font-medium mx-3", children: /* @__PURE__ */ jsxs("a", { href: item2.link, className: styles$a.link, children: [
     " ",
     item2.text,
     " "
@@ -1325,17 +1327,17 @@ function Nav() {
   var _a;
   const { siteData: siteData2 } = useContextData();
   const nav = ((_a = siteData2 == null ? void 0 : siteData2.themeConfig) == null ? void 0 : _a.nav) || [];
-  return /* @__PURE__ */ jsx("header", { fixed: "~", w: "full", z: "10", className: styles$9.bgColor, children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", items: "center", className: "px-8 h-14 divider-bottom", children: [
+  return /* @__PURE__ */ jsx("header", { fixed: "~", w: "full", z: "10", className: styles$a.bgColor, children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", items: "center", className: "px-8 h-14 divider-bottom", children: [
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("a", { href: "/", className: "w-full h-full text-1rem flex items-center", hover: "opacity-60", children: "vigor.js" }) }),
     /* @__PURE__ */ jsxs("div", { flex: "~", children: [
       /* @__PURE__ */ jsx("div", { flex: "~", children: nav.map((item2) => /* @__PURE__ */ React.createElement(MenuItem, { ...item2, key: item2.text })) }),
       /* @__PURE__ */ jsx("div", {}),
-      /* @__PURE__ */ jsx("div", { className: styles$9.socialLinkIcon, children: /* @__PURE__ */ jsx("a", { href: GITHUB_LINK_HREF, children: /* @__PURE__ */ jsx("div", { className: "i-carbon-logo-github w-5 h-5 fill-current" }) }) })
+      /* @__PURE__ */ jsx("div", { className: styles$a.socialLinkIcon, children: /* @__PURE__ */ jsx("a", { href: GITHUB_LINK_HREF, children: /* @__PURE__ */ jsx("div", { className: "i-carbon-logo-github w-5 h-5 fill-current" }) }) })
     ] })
   ] }) });
 }
 const link = "_link_h8tgh_1";
-const styles$8 = {
+const styles$9 = {
   link
 };
 const EXTERNAL_URL = /^https?/;
@@ -1344,7 +1346,7 @@ function Link(props) {
   const isExternal = EXTERNAL_URL.test(href);
   const target = isExternal ? "_blank" : "";
   const rel = isExternal ? "noopener noreferrer" : void 0;
-  return /* @__PURE__ */ jsxs("a", { href, rel, target, className: `${className} ${styles$8.link}`, children: [
+  return /* @__PURE__ */ jsxs("a", { href, rel, target, className: `${className} ${styles$9.link}`, children: [
     children,
     " "
   ] });
@@ -1354,7 +1356,7 @@ const medium = "_medium_5uvhl_14";
 const big = "_big_5uvhl_21";
 const brand = "_brand_5uvhl_28";
 const alt = "_alt_5uvhl_32";
-const styles$7 = {
+const styles$8 = {
   button,
   medium,
   big,
@@ -1379,13 +1381,13 @@ function Button(props) {
     type ?? "a",
     {
       href,
-      className: `${styles$7.button} ${styles$7[size]} ${styles$7[theme]} ${className}`
+      className: `${styles$8.button} ${styles$8[size]} ${styles$8[theme]} ${className}`
     },
     props.text
   );
 }
 const title = "_title_1xxnm_1";
-const styles$6 = {
+const styles$7 = {
   title
 };
 function HeroComponent(props) {
@@ -1393,7 +1395,7 @@ function HeroComponent(props) {
   return /* @__PURE__ */ jsxs("div", { flex: "~", children: [
     /* @__PURE__ */ jsxs("div", { className: "w-1/2", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("h1", { className: "text-5xl font-semibold pb-5", children: /* @__PURE__ */ jsxs("span", { className: styles$6.title, children: [
+        /* @__PURE__ */ jsx("h1", { className: "text-5xl font-semibold pb-5", children: /* @__PURE__ */ jsxs("span", { className: styles$7.title, children: [
           " ",
           hero.name,
           " "
@@ -1424,29 +1426,44 @@ function HeroComponent(props) {
 }
 const bg = "_bg_16d6n_1";
 const iconBg = "_icon-bg_16d6n_7";
-const styles$5 = {
+const styles$6 = {
   bg,
   iconBg
 };
 function FeatureComponent(props) {
-  return /* @__PURE__ */ jsx("div", { flex: "~ wrap", justify: "between", pt: "20", children: props.features.map((feature) => {
+  return /* @__PURE__ */ jsx("div", { flex: "~ wrap", justify: "between", pt: "20", className: "divider-bottom pb-10", children: props.features.map((feature) => {
     const {
       title: title2,
       details,
       icon = ""
     } = feature;
-    return /* @__PURE__ */ jsx("div", { border: "rounded-md", pb: "1.3%", w: "32.4%", children: /* @__PURE__ */ jsxs("article", { p: "6", className: styles$5.bg, "h-full": "true", children: [
-      /* @__PURE__ */ jsx("div", { className: `flex-center text-3xl w-13 h-11 ${styles$5.iconBg}`, border: "rounded-xl solid", children: icon }),
+    return /* @__PURE__ */ jsx("div", { border: "rounded-md", pb: "1.3%", w: "32.4%", children: /* @__PURE__ */ jsxs("article", { p: "6", className: styles$6.bg, "h-full": "true", children: [
+      /* @__PURE__ */ jsx("div", { className: `flex-center text-3xl w-13 h-11 ${styles$6.iconBg}`, border: "rounded-xl solid", children: icon }),
       /* @__PURE__ */ jsx("h2", { className: "font-semibold py-4", children: title2 }),
       /* @__PURE__ */ jsx("p", { className: "text-3.5 font-medium opacity-90", children: details })
     ] }) }, title2);
   }) });
 }
+const footer = "_footer_p3j6k_1";
+const styles$5 = {
+  footer
+};
+function FooterComponent(props) {
+  const { footer: footer2 } = props;
+  return /* @__PURE__ */ jsxs("div", { className: `py-5 ${styles$5.footer}`, children: [
+    /* @__PURE__ */ jsx("p", { className: "flex-center", children: footer2.message }),
+    /* @__PURE__ */ jsxs("span", { className: "flex-center", children: [
+      "Copyright © 2023-present ",
+      footer2.copyright
+    ] })
+  ] });
+}
 function HomePage() {
   const { frontmatter: frontmatter2 } = useContextData();
-  return /* @__PURE__ */ jsxs("div", { className: "px-24 pt-30 pb-10", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "px-24 pt-30", children: [
     /* @__PURE__ */ jsx(HeroComponent, { hero: frontmatter2.hero }),
-    /* @__PURE__ */ jsx(FeatureComponent, { features: frontmatter2.features })
+    /* @__PURE__ */ jsx(FeatureComponent, { features: frontmatter2.features }),
+    /* @__PURE__ */ jsx(FooterComponent, { footer: frontmatter2.footer })
   ] });
 }
 const sidebar = "_sidebar_byf93_1";
@@ -1664,7 +1681,6 @@ async function initPageData(routePath) {
   if (matched) {
     const route = matched[0].route;
     const moduleInfo = await route.preload();
-    console.log(moduleInfo);
     return {
       title: moduleInfo.title,
       pageType: ((_a = moduleInfo == null ? void 0 : moduleInfo.frontmatter) == null ? void 0 : _a.pageType) ?? "doc",
@@ -1735,8 +1751,8 @@ function getStatelessNavigator() {
     }
   };
 }
-function render(pagePath, helmetContext) {
-  const pageData = initPageData(pagePath);
+async function render(pagePath, helmetContext) {
+  const pageData = await initPageData(pagePath);
   return server.renderToString(
     /* @__PURE__ */ jsx(reactHelmetAsync.HelmetProvider, { context: helmetContext, children: /* @__PURE__ */ jsx(contextData.Provider, { value: pageData, children: /* @__PURE__ */ jsx(StaticRouter, { location: pagePath, children: /* @__PURE__ */ jsx(App, {}) }) }) })
   );

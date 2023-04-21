@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 export function FeatureComponent(props: {features: Feature[]}) { 
   
   return (
-    <div flex="~ wrap" justify="between" pt="20">
+    <div flex="~ wrap" justify="between" pt="20" className="divider-bottom pb-10">
       {
         props.features.map((feature) => {
           const {
