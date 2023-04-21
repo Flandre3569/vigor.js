@@ -48,7 +48,7 @@ export function pluginConfig(config: SiteConfig): Plugin {
     // sirv 是一个优化过的轻量级中间件，用来处理静态资源请求
     configureServer(server) {
       const publicDir = path.join(config.root, "public");
-      if (fs.pathExistsSync(publicDir)) {
+      if (fs.existsSync(publicDir)) {
         server.middlewares.use(sirv(publicDir));
       }
     },

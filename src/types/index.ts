@@ -125,4 +125,5 @@ export interface Frontmatter {
   outLine?: boolean;
   hero?: Hero;
   features?: Feature[];
+  footer?: FooterConfig;
 }
