@@ -1,6 +1,6 @@
 {
   "name": "vigor-moon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SSG framework",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
