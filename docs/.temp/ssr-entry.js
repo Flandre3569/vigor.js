@@ -2,6 +2,7 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const jsxRuntime = require("react/jsx-runtime");
 const React = require("react");
+const reactHelmetAsync = require("react-helmet-async");
 const server = require("react-dom/server");
 function _interopNamespaceDefault(e) {
   const n = Object.create(null, { [Symbol.toStringTag]: { value: "Module" } });
@@ -794,6 +795,7 @@ const toc$1 = [{
   "text": "koa：",
   "depth": 3
 }];
+const title$2 = "Koa vs Express";
 function _createMdxContent$1(props) {
   const _components = Object.assign({
     h1: "h1",
@@ -1203,6 +1205,7 @@ const a = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: MDXContent$1,
   frontmatter: frontmatter$1,
+  title: title$2,
   toc: toc$1
 }, Symbol.toStringTag, { value: "Module" }));
 function B() {
@@ -1266,6 +1269,7 @@ const frontmatter = {
   }]
 };
 const toc = [];
+const title$1 = "Koa vs Express";
 function _createMdxContent(props) {
   return jsx(Fragment, {});
 }
@@ -1279,6 +1283,7 @@ const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
   __proto__: null,
   default: MDXContent,
   frontmatter,
+  title: title$1,
   toc
 }, Symbol.toStringTag, { value: "Module" }));
 const routes = [
@@ -1288,6 +1293,7 @@ const routes = [
   { path: "/guide/c", element: React.createElement(C), preload: () => Promise.resolve().then(() => c) },
   { path: "/", element: React.createElement(MDXContent), preload: () => Promise.resolve().then(() => index) }
 ];
+const siteData = { "title": "123", "description": "A SSG framework.", "themeConfig": { "nav": [{ "text": "主页", "link": "/" }, { "text": "指南", "link": "/guide/a" }], "sidebar": { "/guide/": [{ "text": "教程", "items": [{ "text": "快速上手", "link": "/guide/a" }, { "text": "如何安装", "link": "/guide/b" }, { "text": "操作指南", "link": "/guide/c" }] }] } }, "vite": {} };
 const Content = () => {
   const rootElement = useRoutes(routes);
   return rootElement;
@@ -1317,8 +1323,8 @@ function MenuItem(item2) {
 }
 function Nav() {
   var _a;
-  const { siteData } = useContextData();
-  const nav = ((_a = siteData == null ? void 0 : siteData.themeConfig) == null ? void 0 : _a.nav) || [];
+  const { siteData: siteData2 } = useContextData();
+  const nav = ((_a = siteData2 == null ? void 0 : siteData2.themeConfig) == null ? void 0 : _a.nav) || [];
   return /* @__PURE__ */ jsx("header", { fixed: "~", w: "full", z: "10", className: styles$9.bgColor, children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", items: "center", className: "px-8 h-14 divider-bottom", children: [
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("a", { href: "/", className: "w-full h-full text-1rem flex items-center", hover: "opacity-60", children: "vigor.js" }) }),
     /* @__PURE__ */ jsxs("div", { flex: "~", children: [
@@ -1483,8 +1489,8 @@ const styles$3 = {
 function getNextPageData() {
   var _a;
   const { pathname } = useLocation();
-  const { siteData } = useContextData();
-  const sidebar2 = ((_a = siteData.themeConfig) == null ? void 0 : _a.sidebar) || {};
+  const { siteData: siteData2 } = useContextData();
+  const sidebar2 = ((_a = siteData2.themeConfig) == null ? void 0 : _a.sidebar) || {};
   const itemArray = [];
   Object.keys(sidebar2).forEach((key) => {
     const itemGroup = sidebar2[key] || [];
@@ -1505,11 +1511,11 @@ function getNextPageData() {
 function NextPage() {
   const { prevPage: prevPage2, nextPage: nextPage2 } = getNextPageData();
   return /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsxs("div", { flex: "~", justify: "between", className: "py-5", children: [
-    /* @__PURE__ */ jsx("div", { children: prevPage2 && /* @__PURE__ */ jsxs("a", { href: prevPage2.link, className: `${styles$3.prevPage}`, children: [
+    /* @__PURE__ */ jsx("div", { children: prevPage2 && /* @__PURE__ */ jsxs("a", { href: prevPage2.link, className: styles$3.prevPage, children: [
       /* @__PURE__ */ jsx("span", { mr: "5", className: styles$3.prevPageTitle, children: "上一页" }),
       /* @__PURE__ */ jsx("span", { className: styles$3.prevPageContent, children: prevPage2.text })
     ] }) }),
-    /* @__PURE__ */ jsx("div", { children: nextPage2 && /* @__PURE__ */ jsxs("a", { href: nextPage2.link, className: `${styles$3.nextPage}`, children: [
+    /* @__PURE__ */ jsx("div", { children: nextPage2 && /* @__PURE__ */ jsxs("a", { href: nextPage2.link, className: styles$3.nextPage, children: [
       /* @__PURE__ */ jsx("span", { mr: "5", className: styles$3.nextPageTitle, children: "下一页" }),
       /* @__PURE__ */ jsxs("span", { className: styles$3.nextPageContent, children: [
         nextPage2.text,
@@ -1567,17 +1573,17 @@ function TocComponent(props) {
     /* @__PURE__ */ jsx("nav", { children: /* @__PURE__ */ jsx("ul", { relative: "~", children: headers.map(renderToc) }) })
   ] }) }) });
 }
-const vigorDoc$1 = "_vigor-doc_1vfmz_2";
-const tocContainer$1 = "_toc-container_1vfmz_36";
-const headerAnchor$1 = "_header-anchor_1vfmz_45";
+const vigorDoc$1 = "_vigor-doc_akn73_2";
+const tocContainer$1 = "_toc-container_akn73_36";
+const headerAnchor$1 = "_header-anchor_akn73_45";
 const styles$1 = {
   vigorDoc: vigorDoc$1,
   tocContainer: tocContainer$1,
   headerAnchor: headerAnchor$1
 };
-const vigorDoc = "_vigor-doc_1vfmz_2";
-const tocContainer = "_toc-container_1vfmz_36";
-const headerAnchor = "_header-anchor_1vfmz_45";
+const vigorDoc = "_vigor-doc_akn73_2";
+const tocContainer = "_toc-container_akn73_36";
+const headerAnchor = "_header-anchor_akn73_45";
 const index_module = {
   vigorDoc,
   tocContainer,
@@ -1585,8 +1591,8 @@ const index_module = {
 };
 function DocPage() {
   var _a;
-  const { siteData, toc: toc2 } = useContextData();
-  const sidebarData = ((_a = siteData.themeConfig) == null ? void 0 : _a.sidebar) || {};
+  const { siteData: siteData2, toc: toc2 } = useContextData();
+  const sidebarData = ((_a = siteData2.themeConfig) == null ? void 0 : _a.sidebar) || {};
   const { pathname } = useLocation();
   const matchedSidebarKey = Object.keys(sidebarData).find((key) => {
     if (pathname.startsWith(key)) {
@@ -1636,7 +1642,7 @@ function NotFoundPage() {
 }
 function Layout() {
   const pageData = useContextData();
-  const { pageType } = pageData;
+  const { pageType, title: title2 } = pageData;
   const Content2 = () => {
     if (pageType === "home") {
       return /* @__PURE__ */ jsx(HomePage, {});
@@ -1647,9 +1653,36 @@ function Layout() {
     }
   };
   return /* @__PURE__ */ jsxs("div", { children: [
+    /* @__PURE__ */ jsx(reactHelmetAsync.Helmet, { children: /* @__PURE__ */ jsx("title", { children: title2 }) }),
     /* @__PURE__ */ jsx(Nav, {}),
-    Content2()
+    /* @__PURE__ */ jsx("section", { children: Content2() })
   ] });
+}
+async function initPageData(routePath) {
+  var _a;
+  const matched = matchRoutes(routes, routePath);
+  if (matched) {
+    const route = matched[0].route;
+    const moduleInfo = await route.preload();
+    console.log(moduleInfo);
+    return {
+      title: moduleInfo.title,
+      pageType: ((_a = moduleInfo == null ? void 0 : moduleInfo.frontmatter) == null ? void 0 : _a.pageType) ?? "doc",
+      siteData,
+      frontmatter: moduleInfo.frontmatter,
+      pagePath: routePath,
+      // 这边有一个类型错误，应该是上面的moduleInfo那边产生了类型不匹配的问题
+      toc: moduleInfo.toc
+    };
+  } else {
+    return {
+      title: "404",
+      pageType: "404",
+      siteData,
+      pagePath: routePath,
+      frontmatter: {}
+    };
+  }
 }
 function App() {
   return /* @__PURE__ */ jsx(Layout, {});
@@ -1702,9 +1735,10 @@ function getStatelessNavigator() {
     }
   };
 }
-function render(pagePath) {
+function render(pagePath, helmetContext) {
+  const pageData = initPageData(pagePath);
   return server.renderToString(
-    /* @__PURE__ */ jsx(StaticRouter, { location: pagePath, children: /* @__PURE__ */ jsx(App, {}) })
+    /* @__PURE__ */ jsx(reactHelmetAsync.HelmetProvider, { context: helmetContext, children: /* @__PURE__ */ jsx(contextData.Provider, { value: pageData, children: /* @__PURE__ */ jsx(StaticRouter, { location: pagePath, children: /* @__PURE__ */ jsx(App, {}) }) }) })
   );
 }
 exports.render = render;

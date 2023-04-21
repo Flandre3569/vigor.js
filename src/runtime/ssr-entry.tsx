@@ -1,13 +1,22 @@
 import { App } from "./App";
 import { renderToString } from "react-dom/server"
-import {StaticRouter} from "react-router-dom/server"
+import { StaticRouter } from "react-router-dom/server"
+import { initPageData } from "./App";
+import { contextData } from "./hooks";
+import { HelmetProvider } from 'react-helmet-async';
+
 
 // SSR渲染器
-export function render(pagePath: string) {
+export function render(pagePath: string, helmetContext: object) {
+  const pageData = initPageData(pagePath);
   return renderToString(
-    <StaticRouter location={pagePath}>
-      <App />
-    </StaticRouter>
+    <HelmetProvider context={helmetContext}>
+      <contextData.Provider value={pageData}>
+        <StaticRouter location={pagePath}>
+          <App />
+        </StaticRouter>
+      </contextData.Provider>
+    </HelmetProvider>
   );
 }
 

@@ -21,6 +21,8 @@ interface ChildNode {
 // 初始化slugger
 const slugger = new Slugger();
 
+let title = "";
+
 export const TOCPlugin: Plugin<[], Root> = () => {
   return (tree) => {
     // 初始化toc数组
@@ -29,32 +31,35 @@ export const TOCPlugin: Plugin<[], Root> = () => {
       if (!node.depth || !node.children) {
         return;
       }
+      if (node.depth === 1) {
+        title = (node.children[0] as ChildNode).value;
+      }
 
-      // 解析h2~h5
-      // node.children 是一个数组，包含几种情况:
-      // 1. 文本节点，如 '## title'
-      // 结构如下:
-      // {
-      //   type: 'text',
-      //   value: 'title'
-      // }
-      // 2. 链接节点，如 '## [title](/path)'
-      // 结构如下:
-      // {
-      //   type: 'link',
-      //     {
-      //       type: 'text',
-      //       value: 'title'
-      //     }
-      //   ]
-      // }
-      // 3. 内联代码节点，如 '## `title`'
-      // 结构如下:
-      // {
-      //   type: 'inlineCode',
-      //   value: 'title'
-      // }
       if (node.depth > 1 && node.depth < 5) {
+        // 解析h2~h5
+        // node.children 是一个数组，包含几种情况:
+        // 1. 文本节点，如 '## title'
+        // 结构如下:
+        // {
+        //   type: 'text',
+        //   value: 'title'
+        // }
+        // 2. 链接节点，如 '## [title](/path)'
+        // 结构如下:
+        // {
+        //   type: 'link',
+        //     {
+        //       type: 'text',
+        //       value: 'title'
+        //     }
+        //   ]
+        // }
+        // 3. 内联代码节点，如 '## `title`'
+        // 结构如下:
+        // {
+        //   type: 'inlineCode',
+        //   value: 'title'
+        // }
         const originText = (node.children as ChildNode[])
           .map((child) => {
             switch (child.type) {
@@ -85,5 +90,20 @@ export const TOCPlugin: Plugin<[], Root> = () => {
         }) as unknown as Program,
       },
     } as MdxjsEsm);
+
+    if (title) {
+      const insertTitle = `export const title = "${title}";`;
+
+      tree.children.push({
+        type: "mdxjsEsm",
+        value: insertTitle,
+        data: {
+          estree: parse(insertTitle, {
+            ecmaVersion: 2020,
+            sourceType: "module",
+          }) as unknown as Program,
+        },
+      } as MdxjsEsm);
+    }
   };
 };

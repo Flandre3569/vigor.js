@@ -349,18 +349,18 @@ ul {
   color: var(--vigor-toc-hover);
   font-weight: 650;
 }
-._vigor-doc_1vfmz_2 h1,
-._vigor-doc_1vfmz_2 h2,
-._vigor-doc_1vfmz_2 h3,
-._vigor-doc_1vfmz_2 h4,
-._vigor-doc_1vfmz_2 h5,
-._vigor-doc_1vfmz_2 h6 {
+._vigor-doc_akn73_2 h1,
+._vigor-doc_akn73_2 h2,
+._vigor-doc_akn73_2 h3,
+._vigor-doc_akn73_2 h4,
+._vigor-doc_akn73_2 h5,
+._vigor-doc_akn73_2 h6 {
   position: relative;
   font-weight: 600;
   outline: none;
 }
 
-._vigor-doc_1vfmz_2 h1 {
+._vigor-doc_akn73_2 h1 {
   letter-spacing: -0.02em;
   line-height: 40px;
   font-size: 30px;
@@ -368,7 +368,7 @@ ul {
   color: var(--vigor-c-h1-text);
 }
 
-._vigor-doc_1vfmz_2 h2 {
+._vigor-doc_akn73_2 h2 {
   margin: 48px 0 16px;
   /* padding-top: 24px; */
   letter-spacing: -0.02em;
@@ -376,14 +376,14 @@ ul {
   font-size: 24px;
 }
 
-._vigor-doc_1vfmz_2 h3 {
+._vigor-doc_akn73_2 h3 {
   margin: 32px 0 0;
   letter-spacing: -0.01em;
   line-height: 28px;
   font-size: 20px;
 }
 
-._toc-container_1vfmz_36 {
+._toc-container_akn73_36 {
   position: sticky;
   top: 10vh;
   height: 100vh;
@@ -392,7 +392,7 @@ ul {
   scrollbar-width: none;
 }
 
-._vigor-doc_1vfmz_2 ._header-anchor_1vfmz_45 {
+._vigor-doc_akn73_2 ._header-anchor_akn73_45 {
   float: left;
   margin-left: -0.87em;
   padding-right: 0.23em;
@@ -401,24 +401,24 @@ ul {
   transition: color 0.25s, opacity 0.25s;
 }
 
-._vigor-doc_1vfmz_2 h1 a,
-._vigor-doc_1vfmz_2 h2 a,
-._vigor-doc_1vfmz_2 h3 a,
-._vigor-doc_1vfmz_2 h4 a,
-._vigor-doc_1vfmz_2 h5 a,
-._vigor-doc_1vfmz_2 h6 a {
+._vigor-doc_akn73_2 h1 a,
+._vigor-doc_akn73_2 h2 a,
+._vigor-doc_akn73_2 h3 a,
+._vigor-doc_akn73_2 h4 a,
+._vigor-doc_akn73_2 h5 a,
+._vigor-doc_akn73_2 h6 a {
   text-indent: -9999em;
   overflow: hidden;
   float: left;
 }
 
-._vigor-doc_1vfmz_2 p {
+._vigor-doc_akn73_2 p {
   margin: 0 0 16px;
   padding: 0;
 }
 
 /* 设置代码块样式 */
-._vigor-doc_1vfmz_2 pre {
+._vigor-doc_akn73_2 pre {
   margin: 0 0 16px;
   padding: 16px;
   background-color: #f8f8f8;
@@ -429,7 +429,7 @@ ul {
   overflow: auto;
 }
 
-._vigor-doc_1vfmz_2 p code {
+._vigor-doc_akn73_2 p code {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 0.9em;
   color: var(--main-color);
@@ -438,13 +438,13 @@ ul {
   border-radius: 3px;
 }
 
-._vigor-doc_1vfmz_2 pre code {
+._vigor-doc_akn73_2 pre code {
   font-family: Consolas, Monaco, "Andale Mono", monospace;
   font-size: 14px;
 }
 
 /* 设置块引用样式 */
-._vigor-doc_1vfmz_2 blockquote {
+._vigor-doc_akn73_2 blockquote {
   margin: 0 0 16px;
   padding: 16px;
   background-color: #f8f8f8;
@@ -454,50 +454,45 @@ ul {
 }
 
 /* 设置强调样式 */
-._vigor-doc_1vfmz_2 em, strong {
+._vigor-doc_akn73_2 em, strong {
   font-style: italic;
 }
 
-._vigor-doc_1vfmz_2 strong {
+._vigor-doc_akn73_2 strong {
   font-weight: 600;
 }
 
 /* 设置表格样式 */
-._vigor-doc_1vfmz_2 table {
+._vigor-doc_akn73_2 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-._vigor-doc_1vfmz_2 th, td {
+._vigor-doc_akn73_2 th, td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: left;
   vertical-align: top;
 }
 
-._vigor-doc_1vfmz_2 th {
+._vigor-doc_akn73_2 th {
   font-weight: 600;
   background-color: #f8f8f8;
 }
 
 /* 代码块 */
-._vigor-doc_1vfmz_2 p code:hover {
-  background-color: var(--main-color);
-  color: var(--light-color);
-  cursor: pointer;
-}
-._vigor-doc_1vfmz_2 h1,
-._vigor-doc_1vfmz_2 h2,
-._vigor-doc_1vfmz_2 h3,
-._vigor-doc_1vfmz_2 h4,
-._vigor-doc_1vfmz_2 h5,
-._vigor-doc_1vfmz_2 h6 {
+._vigor-doc_akn73_2 h1,
+._vigor-doc_akn73_2 h2,
+._vigor-doc_akn73_2 h3,
+._vigor-doc_akn73_2 h4,
+._vigor-doc_akn73_2 h5,
+._vigor-doc_akn73_2 h6 {
   position: relative;
   font-weight: 600;
   outline: none;
 }
 
-._vigor-doc_1vfmz_2 h1 {
+._vigor-doc_akn73_2 h1 {
   letter-spacing: -0.02em;
   line-height: 40px;
   font-size: 30px;
@@ -505,7 +500,7 @@ ul {
   color: var(--vigor-c-h1-text);
 }
 
-._vigor-doc_1vfmz_2 h2 {
+._vigor-doc_akn73_2 h2 {
   margin: 48px 0 16px;
   /* padding-top: 24px; */
   letter-spacing: -0.02em;
@@ -513,14 +508,14 @@ ul {
   font-size: 24px;
 }
 
-._vigor-doc_1vfmz_2 h3 {
+._vigor-doc_akn73_2 h3 {
   margin: 32px 0 0;
   letter-spacing: -0.01em;
   line-height: 28px;
   font-size: 20px;
 }
 
-._toc-container_1vfmz_36 {
+._toc-container_akn73_36 {
   position: sticky;
   top: 10vh;
   height: 100vh;
@@ -529,7 +524,7 @@ ul {
   scrollbar-width: none;
 }
 
-._vigor-doc_1vfmz_2 ._header-anchor_1vfmz_45 {
+._vigor-doc_akn73_2 ._header-anchor_akn73_45 {
   float: left;
   margin-left: -0.87em;
   padding-right: 0.23em;
@@ -538,24 +533,24 @@ ul {
   transition: color 0.25s, opacity 0.25s;
 }
 
-._vigor-doc_1vfmz_2 h1 a,
-._vigor-doc_1vfmz_2 h2 a,
-._vigor-doc_1vfmz_2 h3 a,
-._vigor-doc_1vfmz_2 h4 a,
-._vigor-doc_1vfmz_2 h5 a,
-._vigor-doc_1vfmz_2 h6 a {
+._vigor-doc_akn73_2 h1 a,
+._vigor-doc_akn73_2 h2 a,
+._vigor-doc_akn73_2 h3 a,
+._vigor-doc_akn73_2 h4 a,
+._vigor-doc_akn73_2 h5 a,
+._vigor-doc_akn73_2 h6 a {
   text-indent: -9999em;
   overflow: hidden;
   float: left;
 }
 
-._vigor-doc_1vfmz_2 p {
+._vigor-doc_akn73_2 p {
   margin: 0 0 16px;
   padding: 0;
 }
 
 /* 设置代码块样式 */
-._vigor-doc_1vfmz_2 pre {
+._vigor-doc_akn73_2 pre {
   margin: 0 0 16px;
   padding: 16px;
   background-color: #f8f8f8;
@@ -566,7 +561,7 @@ ul {
   overflow: auto;
 }
 
-._vigor-doc_1vfmz_2 p code {
+._vigor-doc_akn73_2 p code {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 0.9em;
   color: var(--main-color);
@@ -575,13 +570,13 @@ ul {
   border-radius: 3px;
 }
 
-._vigor-doc_1vfmz_2 pre code {
+._vigor-doc_akn73_2 pre code {
   font-family: Consolas, Monaco, "Andale Mono", monospace;
   font-size: 14px;
 }
 
 /* 设置块引用样式 */
-._vigor-doc_1vfmz_2 blockquote {
+._vigor-doc_akn73_2 blockquote {
   margin: 0 0 16px;
   padding: 16px;
   background-color: #f8f8f8;
@@ -591,38 +586,33 @@ ul {
 }
 
 /* 设置强调样式 */
-._vigor-doc_1vfmz_2 em, strong {
+._vigor-doc_akn73_2 em, strong {
   font-style: italic;
 }
 
-._vigor-doc_1vfmz_2 strong {
+._vigor-doc_akn73_2 strong {
   font-weight: 600;
 }
 
 /* 设置表格样式 */
-._vigor-doc_1vfmz_2 table {
+._vigor-doc_akn73_2 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-._vigor-doc_1vfmz_2 th, td {
+._vigor-doc_akn73_2 th, td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: left;
   vertical-align: top;
 }
 
-._vigor-doc_1vfmz_2 th {
+._vigor-doc_akn73_2 th {
   font-weight: 600;
   background-color: #f8f8f8;
 }
 
-/* 代码块 */
-._vigor-doc_1vfmz_2 p code:hover {
-  background-color: var(--main-color);
-  color: var(--light-color);
-  cursor: pointer;
-}._h1_2hjpi_1 {
+/* 代码块 */._h1_2hjpi_1 {
   font-size: 100px;
   font-weight: bold;
   padding-top: 30vh;

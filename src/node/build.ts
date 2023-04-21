@@ -18,6 +18,8 @@ import { Route, pluginRoutes } from "./plugin/plugin-routes";
 import pluginUnocss from "unocss/vite";
 import unocssOptions from "./unocssOptions";
 
+import { HelmetData } from "react-helmet-async";
+
 const CLIENT_OUTPUT = "build";
 
 // 依靠vite的打包工具
@@ -30,7 +32,7 @@ export async function bundle(root: string, config: SiteConfig) {
     plugins: [
       pluginUnocss(unocssOptions),
       pluginIndexHtml(),
-      pluginReact(),
+      pluginReact({ jsxRuntime: "automatic", jsxImportSource: "react" }),
       pluginConfig(config),
       // 此处的isSSR和isServer其实是一个东西，但是用的结构符，所以名称需要和之前设定的一样
       // 所以添加了一个参数，直接让其和isServer相同
@@ -86,7 +88,7 @@ export async function bundle(root: string, config: SiteConfig) {
 
 // 渲染页面
 export async function renderPage(
-  render: (pagePath: string) => string,
+  render: (pagePath: string, helmetContext: object) => string,
   root: string,
   clientBundle: RollupOutput,
   routes: Route[]
@@ -105,12 +107,16 @@ export async function renderPage(
       },
     ].map(async (route) => {
       const routePath = route.path;
+      const helmetContext = {
+        context: {},
+      } as HelmetData;
       // 拿到将html渲染为字符串的结果
-      const appHtml = render(routePath);
+      const appHtml = render(routePath, helmetContext.context);
       const styleAssets = clientBundle.output.filter(
         (chunk) => chunk.type === "asset" && chunk.fileName.endsWith(".css")
       );
       // const code = clientBundle.output[0].code;
+      const { helmet } = helmetContext.context;
       const html = `
       <!DOCTYPE html>
       <html lang="en">
@@ -118,6 +124,11 @@ export async function renderPage(
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        ${helmet?.title?.toString() || ""}
+        ${helmet?.meta?.toString() || ""}
+        ${helmet?.link?.toString() || ""}
+        ${helmet?.style?.toString() || ""}
+        <meta name="description" content="xxx">
         ${styleAssets.map((item) => `<link rel="stylesheet" href="/${item.fileName}">`).join("\n")}
         <title>vigor.js</title>
       </head>

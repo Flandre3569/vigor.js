@@ -14,6 +14,7 @@ export async function initPageData(routePath: string): Promise<PageData> {
     const moduleInfo = await route.preload();
     console.log(moduleInfo);
     return {
+      title: moduleInfo.title,
       pageType: moduleInfo?.frontmatter?.pageType ?? "doc",
       siteData: siteData,
       frontmatter: moduleInfo.frontmatter,
@@ -21,14 +22,16 @@ export async function initPageData(routePath: string): Promise<PageData> {
       // 这边有一个类型错误，应该是上面的moduleInfo那边产生了类型不匹配的问题
       toc: moduleInfo.toc as any
     }
+  } else {
+    return {
+      title: "404",
+      pageType: "404",
+      siteData,
+      pagePath: routePath,
+      frontmatter: {}
+    }
   }
-
-  return {
-    pageType: "404",
-    siteData,
-    pagePath: routePath,
-    frontmatter: {}
-  }
+  
 }
 
 export function App() {

@@ -11,10 +11,11 @@ import { Nav } from "../component/nav";
 import { HomePage } from "./home/home";
 import { DocPage } from "./doc/doc";
 import { NotFoundPage } from "./notFound/index";
+import { Helmet } from "react-helmet-async";
 
 export function Layout() {
   const pageData = useContextData();
-  const { pageType } = pageData;
+  const { pageType, title } = pageData;
   const Content = () => {
     if (pageType === "home") {
       return <HomePage />
@@ -26,7 +27,12 @@ export function Layout() {
   }
 
   return <div>
+    <Helmet>
+      <title>{ title }</title>
+    </Helmet>
     <Nav />
-    { Content() }
+    <section>
+      { Content() }
+    </section>
   </div>
 }

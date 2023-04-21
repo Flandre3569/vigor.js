@@ -8,6 +8,7 @@ export interface PageModule {
   default: ComponentType;
   frontmatter?: Frontmatter;
   [key: string]: unknown;
+  title?: string;
 }
 export interface Route {
   path: string;

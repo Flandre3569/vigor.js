@@ -72,6 +72,7 @@ export interface TocTree {
 
 // 传递给前端的信息
 export interface PageData {
+  title: string;
   // 网站的配置信息
   siteData: UserConfig;
   // 当前页面的路由

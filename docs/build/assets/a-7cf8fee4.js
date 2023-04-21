@@ -1,4 +1,4 @@
-import { j as jsx, a as jsxs, F as Fragment } from "./client-entry-8cfffbf2.js";
+import { j as jsx, a as jsxs, F as Fragment } from "./client-entry-21e7c095.js";
 const frontmatter = void 0;
 const toc = [{
   "id": "背景介绍-1",
@@ -29,6 +29,7 @@ const toc = [{
   "text": "koa：",
   "depth": 3
 }];
+const title = "Koa vs Express";
 function _createMdxContent(props) {
   const _components = Object.assign({
     h1: "h1",
@@ -437,5 +438,6 @@ function MDXContent(props = {}) {
 export {
   MDXContent as default,
   frontmatter,
+  title,
   toc
 };

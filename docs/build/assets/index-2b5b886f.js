@@ -1,4 +1,4 @@
-import { j as jsx, F as Fragment } from "./client-entry-8cfffbf2.js";
+import { j as jsx, F as Fragment } from "./client-entry-21e7c095.js";
 const frontmatter = {
   "pageType": "home",
   "hero": {
@@ -46,6 +46,7 @@ const frontmatter = {
   }]
 };
 const toc = [];
+const title = "Koa vs Express";
 function _createMdxContent(props) {
   return jsx(Fragment, {});
 }
@@ -58,5 +59,6 @@ function MDXContent(props = {}) {
 export {
   MDXContent as default,
   frontmatter,
+  title,
   toc
 };
