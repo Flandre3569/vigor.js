@@ -22,7 +22,7 @@ export async function createDevServer(root: string, isSSR: boolean = false) {
     plugins: [
       pluginUnocss(unocssOptions),
       pluginIndexHtml(),
-      pluginReact(),
+      pluginReact({ jsxRuntime: "automatic", jsxImportSource: "react" }),
       pluginConfig(config),
       pluginRoutes({ root: config.root, isSSR }),
       await pluginMdx(),
