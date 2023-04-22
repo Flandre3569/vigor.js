@@ -9,6 +9,7 @@ export default defineConfig({
   clean: true, // 清除之前构建的产物
   minify: process.env.NODE_ENV === "production",
   bundle: true,
+  sourcemap: true,
   splitting: true,
   outDir: "dist",
   format: ["esm", "cjs"],

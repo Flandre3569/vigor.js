@@ -1,16 +1,25 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "./dist",
     "target": "ESNext",
-    "module": "commonjs",
+    "module": "ESNext",
     "rootDir": ".",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "baseUrl": "src",
+    "skipLibCheck": true,
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ESNext", "DOM"],
     "paths": {
       "@runtime": ["runtime/index.ts"]
     },
   },
-  "include": ["e2e/**/*.ts", "src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*", "deploy"],
+  "exclude": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/playground/**",
+    "tsup.config.ts"
+  ]
 }
