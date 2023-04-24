@@ -1,20 +1,14 @@
+#!/usr/bin/env node
+
 // 命令行颜色显示
 import chalk from "chalk";
 // 命令行指令
 import execa from "execa";
 // 弹框
-import { prompt } from "enquirer";
+import prompts from "prompts";
 import semver from "semver";
 
-// 为了让require能够正常使用
-import { createRequire } from "module";
-
-import fs from "fs-extra";
-import path from "path";
 import { timeFormat } from "../utils/timeFormat";
-
-const require = createRequire(import.meta.url);
-
 // 解析命令行参数的
 import minimist from "minimist";
 
@@ -27,7 +21,7 @@ const runDirect = (bin: string, args: string[]) => {
 // 高亮现在正在执行的步骤
 const step = (msg) => console.log(chalk.cyan(msg));
 
-async function deploy() {
+export async function deploy() {
   // 整个部署过程：(采用的方式是github-vercel)
   // 需要注册一个github账号，然后通过Github账号登录vercel
   // 1. 连接github
@@ -47,14 +41,14 @@ async function deploy() {
 
   step("\nCreating git repository...");
   await runDirect("git", ["init"]);
-  const { username, email } = await prompt<{ username: string; email: string }>([
+  const { username, email } = await prompts([
     {
-      type: "input",
+      type: "text",
       name: "username",
       message: "please input your github username:",
     },
     {
-      type: "input",
+      type: "text",
       name: "email",
       message: "please input your github email:",
     },
@@ -64,11 +58,15 @@ async function deploy() {
   runDirect("git", ["config", "--global", "user.name", username]);
   runDirect("git", ["config", "--global", "user.email", email]);
 
-  const { repoSSH } = await prompt<{ repoSSH: string }>({
-    type: "input",
+  if (!username || !email) return;
+
+  const { repoSSH } = await prompts({
+    type: "text",
     name: "repoSSH",
     message: "please input your repoSSH:",
   });
+
+  if (!repoSSH) return;
 
   step("\nCompleting your remote config...");
   runDirect("git", ["remote", "add", "origin_ssh", repoSSH]);
@@ -77,7 +75,7 @@ async function deploy() {
   step("\nCreating your ssh-keygen...");
   runDirect("ssh-keygen", ["-t", "ed25519", "-C", email]);
 
-  const { confirm } = await prompt<{ confirm: string }>({
+  const { confirm } = await prompts({
     type: "confirm",
     name: "confirm",
     message: "Have you completed public key authentication?",
@@ -86,10 +84,23 @@ async function deploy() {
     return;
   }
 
-  step("\n Committing changes...");
+  step("\nCommitting changes...");
   await runDirect("git", ["add", "-A"]);
   await runDirect("git", ["commit", "-m", `${timeFormat()}`]);
   await runDirect("git", ["push"]);
 
   // 安装vercel并连接过程：
+  // 1.下载vercel
+  // 2.使用vercel脚手架将项目上传到vercel中
+  // 3.连接vercel和github，实现CI/CD
+
+  step("\nInstalling vercel...");
+  await runDirect("npm", ["i", "vercel", "-g"]);
+
+  step("\nUploading project to vercel...");
+  await runDirect("vercel", ["link"]);
 }
+
+deploy().catch((e) => {
+  console.error(e);
+});

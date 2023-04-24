@@ -14,10 +14,14 @@ cli
   .command("[root]", "start dev server")
   .alias("dev")
   .action(async (root: string) => {
-    root = root ? resolve(root) : process.cwd();
-    const server = await createDevServer(root);
-    await server.listen();
-    server.printUrls();
+    try {
+      root = root ? resolve(root) : process.cwd();
+      const server = await createDevServer(root);
+      await server.listen();
+      server.printUrls();
+    } catch (error) {
+      console.log(error);
+    }
   });
 
 // 构建打包指令

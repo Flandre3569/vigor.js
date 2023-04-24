@@ -15,7 +15,7 @@
       "@runtime": ["runtime/index.ts"]
     },
   },
-  "include": ["src/**/*", "deploy"],
+  "include": ["src/**/*"],
   "exclude": [
     "**/node_modules/**",
     "**/dist/**",

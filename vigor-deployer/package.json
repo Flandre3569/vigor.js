@@ -1,0 +1,48 @@
+{
+  "name": "vigor-moon-deployer",
+  "version": "1.0.0",
+  "description": "a deployer for the production of vigor-moon.",
+  "packageManager": "pnpm@7.9.2",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "vigor-moon-deploy": "./bin/index.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "pnpm-install": "pnpm install",
+    "dev": "tsup --watch --format=cjs,esm",
+    "build": "tsup --format=cjs,esm"
+  },
+  "keywords": [
+    "vite",
+    "ssg",
+    "deployer"
+  ],
+  "author": "sungMoon",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/prompts": "^2.4.2",
+    "enquirer": "^2.3.6",
+    "execa": "5",
+    "kolorist": "^1.7.0",
+    "minimist": "^1.2.7",
+    "prompts": "^2.4.2",
+    "tsup": "^6.7.0"
+  }
+}
