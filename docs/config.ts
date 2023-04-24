@@ -14,13 +14,17 @@ export default defineConfig({
         text: "指南",
         link: "/guide/a",
       },
+      {
+        text: "教程",
+        link: "/tutorial/初始化vigor",
+      },
     ],
 
     // sidebar内容
     sidebar: {
       "/guide/": [
         {
-          text: "教程",
+          text: "介绍",
           items: [
             {
               text: "快速上手",
@@ -33,6 +37,17 @@ export default defineConfig({
             {
               text: "操作指南",
               link: "/guide/c",
+            },
+          ],
+        },
+      ],
+      "/tutorial/": [
+        {
+          text: "基础使用教程",
+          items: [
+            {
+              text: "初始化vigor",
+              link: "/tutorial/初始化vigor",
             },
           ],
         },
