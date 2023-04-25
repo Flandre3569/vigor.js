@@ -5,7 +5,7 @@ import chalk from "chalk";
 // 命令行指令
 import execa from "execa";
 // 弹框
-import prompts from "prompts";
+import prompts, { Choice } from "prompts";
 import semver from "semver";
 
 import { timeFormat } from "../utils/timeFormat";
@@ -39,49 +39,68 @@ export async function deploy() {
   // 4.开始生成公钥，并在Github上配置
   // 5.执行git add .   git commit -m""  和 git push
 
-  step("\nCreating git repository...");
-  await runDirect("git", ["init"]);
-  const { username, email } = await prompts([
+  const githubChoice = [
     {
-      type: "text",
-      name: "username",
-      message: "please input your github username:",
+      title: "yes",
+      value: "true",
     },
     {
-      type: "text",
-      name: "email",
-      message: "please input your github email:",
+      title: "no",
+      value: "false",
     },
-  ]);
-
-  step("\nCompleting your repo config...");
-  runDirect("git", ["config", "--global", "user.name", username]);
-  runDirect("git", ["config", "--global", "user.email", email]);
-
-  if (!username || !email) return;
-
-  const { repoSSH } = await prompts({
-    type: "text",
-    name: "repoSSH",
-    message: "please input your repoSSH:",
+  ];
+  const { haveGithub } = await prompts({
+    type: "select",
+    name: "haveGithub",
+    message: "Have you connected to the github repository?",
+    choices: githubChoice,
   });
 
-  if (!repoSSH) return;
+  if (haveGithub === "false") {
+    step("\nCreating git repository...");
+    await runDirect("git", ["init"]);
+    const { username, email } = await prompts([
+      {
+        type: "text",
+        name: "username",
+        message: "please input your github username:",
+      },
+      {
+        type: "text",
+        name: "email",
+        message: "please input your github email:",
+      },
+    ]);
 
-  step("\nCompleting your remote config...");
-  runDirect("git", ["remote", "add", "origin_ssh", repoSSH]);
-  runDirect("git", ["remote", "add", "origin", repoSSH]);
+    step("\nCompleting your repo config...");
+    runDirect("git", ["config", "--global", "user.name", username]);
+    runDirect("git", ["config", "--global", "user.email", email]);
 
-  step("\nCreating your ssh-keygen...");
-  runDirect("ssh-keygen", ["-t", "ed25519", "-C", email]);
+    if (!username || !email) return;
 
-  const { confirm } = await prompts({
-    type: "confirm",
-    name: "confirm",
-    message: "Have you completed public key authentication?",
-  });
-  if (!confirm) {
-    return;
+    const { repoSSH } = await prompts({
+      type: "text",
+      name: "repoSSH",
+      message: "please input your repoSSH:",
+    });
+
+    if (!repoSSH) return;
+
+    step("\nCompleting your remote config...");
+    runDirect("git", ["remote", "add", "origin_ssh", repoSSH]);
+    runDirect("git", ["remote", "add", "origin", repoSSH]);
+
+    step("\nCreating your ssh-keygen...");
+    runDirect("ssh-keygen", ["-t", "ed25519", "-C", email]);
+
+    const { confirm } = await prompts({
+      type: "confirm",
+      name: "confirm",
+      message: "Have you completed public key authentication?",
+    });
+    if (!confirm) {
+      return;
+    }
   }
 
   step("\nCommitting changes...");
