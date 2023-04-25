@@ -1,34 +1,42 @@
 .prev-page {
   float: left;
+  display: flex;
+  flex-wrap: wrap;
   border: 1px solid;
   border-radius: 5px;
   &:hover {
     border-color: var(--vigor-c-nextPage-border);
   }
   transform: border-color 0.2s;
-  padding: 1vh 19vw 1vh 1vw; 
+  padding: 1vh 1vw; 
+  width: 20rem;
 }
 
 .next-page {
   float: right;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: end;
+  justify-content: end;
   border: 1px solid;
   border-radius: 5px;
   &:hover {
     border-color: var(--vigor-c-nextPage-border);
   }
   transform: border-color 0.2s;
-  padding: 1vh 1vw 1vh 19vw;
+  padding: 1vh 1vw;
+  width: 20rem;
 }
 
 .prev-page-title {
-  display: flex;
   opacity: 70%;
+  width: 100%;
   font-size: 0.8rem;
 }
 
 .next-page-title {
-  display: flex;
   opacity: 70%;
+  width: 100%;
   font-size: 0.8rem;
 }
 

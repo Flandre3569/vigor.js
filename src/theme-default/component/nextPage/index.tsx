@@ -44,7 +44,7 @@ export function NextPage() {
           {
             prevPage && 
             <a href={prevPage.link} className={styles.prevPage} >
-                <span mr="5" className={styles.prevPageTitle}>上一页</span>
+                <span className={styles.prevPageTitle}>上一页</span>
                 <span className={ styles.prevPageContent }>{ prevPage.text }</span>
             </a>
           }
@@ -53,7 +53,7 @@ export function NextPage() {
           {
             nextPage && 
             <a href={nextPage.link} className={styles.nextPage} >
-                <span mr="5" className={styles.nextPageTitle}>下一页</span>
+                <span className={styles.nextPageTitle}>下一页</span>
                 <span className={ styles.nextPageContent }>{ nextPage.text } </span>
             </a>
           }
