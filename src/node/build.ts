@@ -150,7 +150,7 @@ export async function renderPage(
   );
 
   // 移除掉ssr的产物
-  // await fs.remove(join(root, ".temp"));
+  await fs.remove(join(root, ".temp"));
 }
 
 // feature: SSG构建页面
