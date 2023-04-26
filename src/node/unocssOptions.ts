@@ -8,7 +8,7 @@ const options: VitePluginConfig = {
     // [
     //   "divider-bottom",
     //   {
-    //     "border-bottom": "1px solid var(--island-c-divider-light)"
+    //     "border-bottom": "1px solid var(--vigor-c-divider-light)"
     //   }
     // ]
     [
