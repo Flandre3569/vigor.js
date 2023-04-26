@@ -21,7 +21,7 @@ export function HeroComponent(props: { hero: Hero }) {
           <p className="text-6xl font-semibold"> { hero.text } </p>
           <p className="text-2xl pt-3 pb-6 opacity-65"> { hero.tagline } </p>
         </div>
-        <div flex="~">
+        <div flex="~" pt="3">
           {hero.actions.map((action) => (
             <div key={action.link} className="pr-3">
               <Button
