@@ -1,3 +1,5 @@
+/* ---------------------------------------------------------------------------- */
+/* 设置标题样式 */
 .vigor-doc h1,
 .vigor-doc h2,
 .vigor-doc h3,
@@ -32,7 +34,6 @@
   font-size: 20px;
 }
 
-
 .toc-container {
   position: sticky;
   top: 10vh;
@@ -63,15 +64,22 @@
   float: left;
 }
 
-// /* 设置段落样式 */
+/* 设置段落样式 */
 .vigor-doc p {
-  margin: 0 0 16px;
+  margin: 0 0 15px;
   padding: 0;
 }
 
+/* ---------------------------------------------------------------------------- */
 
 /* 设置代码块样式 */
+.vigor-doc div[class*='language-'] {
+  position: relative;
+  overflow-x: auto;
+}
+
 .vigor-doc pre {
+  position: relative;
   margin: 0 0 16px;
   padding: 16px;
   background-color: #f8f8f8;
@@ -82,7 +90,8 @@
   overflow: auto;
 }
 
-.vigor-doc p code {
+.vigor-doc p code,
+.vigor-doc ul li code {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 0.9em;
   color: var(--main-color);
@@ -95,18 +104,7 @@
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
   font-size: 14px;
 }
-
-
-/* 设置块引用样式 */
-.vigor-doc blockquote {
-  margin: 0 0 16px;
-  padding: 16px;
-  background-color: #f8f8f8;
-  border-left: 4px solid #007bff;
-  color: #666;
-  font-style: italic;
-}
-
+/* ---------------------------------------------------------------------------- */
 /* 设置强调样式 */
 .vigor-doc em, strong {
   font-style: italic;
@@ -115,6 +113,8 @@
 .vigor-doc strong {
   font-weight: 600;
 }
+
+/* ---------------------------------------------------------------------------- */
 
 /* 设置表格样式 */
 .vigor-doc table {
@@ -134,21 +134,64 @@
   background-color: #f8f8f8;
 }
 
+/* ---------------------------------------------------------------------------- */
 
-/* 代码块 */
-// pre {
-//   background-color: var(--light-color);
-//   border: 1px solid var(--main-color);
-//   padding: 1em;
-//   margin: 1em 0;
-//   overflow: auto;
-// }
+/* 设置块引用样式 */
+.vigor-doc blockquote {
+  margin: 16px 0;
+  border-left: 2px solid var(--vigor-c-blockquote-border);
+  padding-left: 16px;
+  transition: border-color 0.5s;
+}
 
+.vigor-doc blockquote > p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--vigor-c-blockquote-text);
+  transition: color 0.5s;
+}
+/* ---------------------------------------------------------------------------- */
 
-// .vigor-doc p code:hover {
-//   background-color: var(--main-color);
-//   color: var(--light-color);
-//   cursor: pointer
-// }
+// 设置链接样式
+.vigor-doc p a {
+  font-weight: 700;
+  color: var(--vigor-c-a-main);
+  text-decoration-style: dotted;
+  transition: color 0.25s;
+}
 
+.vigor-doc p a:hover {
+  color: var(--vigor-c-a-hover);
+}
 
+/* ---------------------------------------------------------------------------- */
+
+// 设置列表样式
+.vigor-doc article ul,
+.vigor-doc article ol {
+  padding-left: 1.25rem;
+  margin: 16px 0;
+}
+
+.vigor-doc article ul {
+  list-style: disc;
+}
+
+.vigor-doc article ol {
+  list-style: decimal;
+}
+
+.vigor-doc article li + li {
+  margin-top: 8px;
+}
+
+.vigor-doc article li > ol,
+.vigor-doc article li > ul {
+  margin: 8px 0 0;
+}
+
+.vigor-doc article img {
+  width: 100%;
+  border: 1px solid var(--vigor-c-divider-light);
+  border-radius: 10px;
+}

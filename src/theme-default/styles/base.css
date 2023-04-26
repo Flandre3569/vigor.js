@@ -90,3 +90,15 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/* 在此处设置一点代码块的lang部分的样式 */
+.lang {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+  color: azure;
+  text-align: left;
+}

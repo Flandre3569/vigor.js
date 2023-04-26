@@ -25,6 +25,7 @@
   --vigor-c-light-green: #4cd137;
   --vigor-c-deep-green: #44bd32;
   --vigor-c-deep-mo-green: #008080;
+  --vigor-c-deepest-green: #004643;
 
   --vigor-c-grey-blue: #487eb0;
   --vigor-c-grey-deep-blue: #40739e;
@@ -108,4 +109,10 @@
 
   --vigor-c-nextPage-content: var(--vigor-c-deep-mo-green);
   --vigor-c-nextPage-border: var(--vigor-c-deep-mo-green);
+
+  --vigor-c-a-main: var(--vigor-c-deep-mo-green);
+  --vigor-c-a-hover: var(--vigor-c-deepest-green);
+
+  --vigor-c-blockquote-border: var(--vigor-c-grey-blue);
+  --vigor-c-blockquote-text: var(--vigor-c-grey-deep-blue);
 }

@@ -30,9 +30,9 @@ export function DocPage() {
       </div>
       <div pt="22" w="3/4" className={styles.vigorDoc} flex="~">
         <div w="2/3" className="vigor-doc">
-          <div className="divider-bottom">
+          <article className="container divider-bottom">
             <Content />
-          </div>
+          </article>
           <div>
             <NextPage />
           </div>

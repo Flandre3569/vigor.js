@@ -23,7 +23,7 @@ export function Nav() {
           <a href="/" className="w-full h-full text-1rem flex items-center" hover="opacity-60">vigor.js</a>
         </div>
       <div flex="~">
-          <div flex="~">
+          <div flex="~" className="divider-right">
             {
               nav.map(item => (
                 <MenuItem {...item} key={item.text} />
@@ -31,7 +31,7 @@ export function Nav() {
             }
           </div>
           <div>{ /*主题切换按钮*/ }</div>
-          <div className={styles.socialLinkIcon}>
+          <div className={`${styles.socialLinkIcon} pl-3`}>
             <a href = { GITHUB_LINK_HREF } >
               <div className="i-carbon-logo-github w-5 h-5 fill-current"></div>
             </a> 

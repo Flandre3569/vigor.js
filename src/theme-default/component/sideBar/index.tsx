@@ -26,7 +26,7 @@ export function Sidebar(props: SidebarType) {
   // 渲染一个sidebar组
   const renderItems = (item: SidebarGroup) => {
     return (
-      <section key={item.text} className="divider-bottom pb-3">
+      <section key={item.text} className="divider-bottom py-3">
         <div>
           <h2 className="font-semibold">{ item.text }</h2>
         </div>

@@ -38,7 +38,7 @@ export function TocComponent(props: TocType) {
     )
   }
   return (
-    <div>
+    <div className="">
       <div>
         {
           tocLength && (
