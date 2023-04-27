@@ -90,9 +90,6 @@ export async function deploy() {
     runDirect("git", ["remote", "add", "origin_ssh", repoSSH]);
     runDirect("git", ["remote", "add", "origin", repoSSH]);
 
-    step("\nCreating your ssh-keygen...");
-    runDirect("ssh-keygen", ["-t", "ed25519", "-C", email]);
-
     const { confirm } = await prompts({
       type: "confirm",
       name: "confirm",
