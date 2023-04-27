@@ -113,8 +113,12 @@ export async function deploy() {
   step("\nInstalling vercel...");
   await runDirect("npm", ["i", "vercel", "-g"]);
 
+  step("\nVercel logining...");
+  await runDirect("vc", ["login"]);
+
   step("\nUploading project to vercel...");
-  await runDirect("vercel", ["link"]);
+  await runDirect("cd", ["./docs/build"]);
+  await runDirect("vc", []);
 }
 
 deploy().catch((e) => {
