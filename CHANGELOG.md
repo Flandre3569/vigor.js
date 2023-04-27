@@ -1,3 +1,7 @@
+## [1.1.5](https://github.com/Flandre3569/vigor.js/compare/v1.1.4...v1.1.5) (2023-04-27)
+
+
+
 ## [1.1.4](https://github.com/Flandre3569/vigor.js/compare/v1.1.3...v1.1.4) (2023-04-26)
 
 

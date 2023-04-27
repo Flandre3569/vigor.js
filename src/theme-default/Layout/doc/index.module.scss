@@ -91,7 +91,9 @@
 }
 
 .vigor-doc p code,
-.vigor-doc ul li code {
+.vigor-doc ul li code,
+.vigor-doc h2 code,
+.vigor-doc h3 code {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 0.9em;
   color: var(--main-color);
@@ -153,14 +155,16 @@
 /* ---------------------------------------------------------------------------- */
 
 // 设置链接样式
-.vigor-doc p a {
+.vigor-doc p a,
+.vigor-doc table a {
   font-weight: 700;
   color: var(--vigor-c-a-main);
   text-decoration-style: dotted;
   transition: color 0.25s;
 }
 
-.vigor-doc p a:hover {
+.vigor-doc p a:hover,
+.vigor-doc table a:hover {
   color: var(--vigor-c-a-hover);
 }
 

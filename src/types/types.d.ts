@@ -5,9 +5,10 @@ declare module "vigor:site-data" {
 }
 
 declare module "vigor:routes" {
-  import { RouteObject } from "react-router-dom";
-  const routes: RouteObject[];
-  export { routes };
+  import { Route } from "react-router-dom";
+  import { SiteConfig } from "./index";
+
+  export const routes: Route[];
 }
 
 declare module "*.module.scss" {
