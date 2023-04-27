@@ -117,7 +117,6 @@ export async function deploy() {
   await runDirect("vc", ["login"]);
 
   step("\nUploading project to vercel...");
-  await runDirect("cd", ["./docs/build"]);
   await runDirect("vc", []);
 }
 
