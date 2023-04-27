@@ -103,7 +103,7 @@ export async function deploy() {
   step("\nCommitting changes...");
   await runDirect("git", ["add", "-A"]);
   await runDirect("git", ["commit", "-m", `${timeFormat()}`]);
-  await runDirect("git", ["push"]);
+  await runDirect("git", ["push", "--set-upstream", "origin", "master"]);
 
   // 安装vercel并连接过程：
   // 1.下载vercel

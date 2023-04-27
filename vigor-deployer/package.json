@@ -1,6 +1,6 @@
 {
   "name": "vigor-moon-deployer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a deployer for the production of vigor-moon.",
   "packageManager": "pnpm@7.9.2",
   "type": "module",
