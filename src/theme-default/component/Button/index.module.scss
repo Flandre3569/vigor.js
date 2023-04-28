@@ -27,10 +27,16 @@
 
 .button.brand {
   background-color: var(--vigor-bg-brand);
+  &:hover {
+    background-color: var(--vigor-bg-brand-hover);
+  }
 }
 
 .button.alt {
   background-color: var(--vigor-bg-alt);
-  opacity: 70%
+  opacity: 70%;
+  &:hover {
+    background-color: var(--vigor-bg-alt-hover);
+  }
 }
 

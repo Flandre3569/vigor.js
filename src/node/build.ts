@@ -91,7 +91,8 @@ export async function renderPage(
   render: (pagePath: string, helmetContext: object) => string,
   root: string,
   clientBundle: RollupOutput,
-  routes: Route[]
+  routes: Route[],
+  config: SiteConfig
 ) {
   // 水合
   const clientChunk = clientBundle.output.find((chunk) => chunk.type === "chunk" && chunk.isEntry);
@@ -119,6 +120,8 @@ export async function renderPage(
         (chunk) => chunk.type === "asset" && chunk.fileName.endsWith(".css")
       );
       // const code = clientBundle.output[0].code;
+      const titleIcon = config.siteData?.icon;
+      const description = config.siteData?.description;
       const { helmet } = helmetContext.context;
       const html = `
       <!DOCTYPE html>
@@ -127,11 +130,12 @@ export async function renderPage(
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="${titleIcon}" type="image/svg+xml"></link>
         ${helmet?.title?.toString() || ""}
         ${helmet?.meta?.toString() || ""}
         ${helmet?.link?.toString() || ""}
         ${helmet?.style?.toString() || ""}
-        <meta name="description" content="xxx">
+        <meta name="description" content="${description}">
         ${styleAssets.map((item) => `<link rel="stylesheet" href="/${item.fileName}">`).join("\n")}
       </head>
       <body>
@@ -162,7 +166,7 @@ export async function build(root: string = process.cwd(), config: SiteConfig) {
   // 服务端渲染，产出HTML
   const { render, routes } = await import(pathToFileURL(serverEntryPath).toString()); // pathToFileURL是为了兼容windows的url格式
   try {
-    await renderPage(render, root, clientBundle, routes);
+    await renderPage(render, root, clientBundle, routes, config);
   } catch (e) {
     console.log("Render is error\n", e);
   }

@@ -56,6 +56,7 @@ export function resolveSiteData(userConfig: UserConfig): UserConfig {
     title: userConfig.title || "vigor.js",
     description: userConfig.description || "A SSG framework.",
     themeConfig: userConfig.themeConfig || {},
+    icon: userConfig.icon || "",
     vite: userConfig.vite || {},
   };
 }

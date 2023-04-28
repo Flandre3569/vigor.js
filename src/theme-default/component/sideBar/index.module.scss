@@ -20,3 +20,8 @@
   opacity: 70%;
   color: var(--vigor-c-text-main);
 }
+
+nav section a:hover {
+  color: var(--vigor-link-onfocus);
+  transition: color 0.2s;
+}

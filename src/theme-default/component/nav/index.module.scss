@@ -18,7 +18,14 @@
     color: var(--vigor-c-black);
   }
 }
-
 .bg-color {
-  background-color: var(--vigor-c-bg-main);
+  -webkit-backdrop-filter: saturate(50%) blur(8px);
+  backdrop-filter: saturate(50%) blur(8px);
 }
+
+@supports not (backdrop-filter: saturate(50%) blur(8px)) {
+  .bg-color {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+

@@ -42,7 +42,7 @@ export function TocComponent(props: TocType) {
       <div>
         {
           tocLength && (
-            <div id="toc-container" className="relative divider-left pl-4 text-13px font-medium">
+            <div id="toc-container" className="fixed divider-left pl-4 text-13px font-medium">
               <div
                 ref={markRef}
                 id="toc-maker" >

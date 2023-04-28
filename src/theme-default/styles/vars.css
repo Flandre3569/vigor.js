@@ -12,6 +12,8 @@
 
   --vigor-c-light-blue: #00a8ff;
   --vigor-c-blue: #0097e6;
+  --vigor-c-secondary-blue: #8bd3dd;
+  --vigor-c-tertiary-blue: #bae8e8;
 
   --vigor-c-light-purple: #9c88ff;
   --vigor-c-purple: #8c7ae6;
@@ -33,6 +35,7 @@
   --vigor-c-light-grey: #dcdde1;
   --vigor-c-grey: #7f8fa6;
   --vigor-c-deep-grey: #718093;
+  --vigor-c-secondary-grey: #a7a7bb;
 
   --vigor-c-mazaline-blue: #273c75;
   --vigor-c-pico-void-blue: #192a56;
@@ -64,12 +67,14 @@
   --vigor-c-icon-bg: var(--vigor-c-swan-white);
 
    /* 按钮brand主题配色 */
-   --vigor-bg-brand: var(--vigor-c-purple);
-   --vigor-bg-alt: var(--vigor-c-deep-grey);
+   --vigor-bg-brand: var(--vigor-c-secondary-blue);
    --vigor-bg-brand-light: var(--vigor-c-azure-light);
    --vigor-text-brand: var(--vigor-c-azure);
+   --vigor-bg-brand-hover: var(--vigor-c-tertiary-blue);
    /* 按钮alt主题配色 */
    --vigor-c-alt: var(--vigor-c-deep-grey);
+   --vigor-bg-alt: var(--vigor-c-deep-grey);
+   --vigor-bg-alt-hover: var(--vigor-c-secondary-grey);
  
    /* 标题配色 */
    --vigor-c-title: var(--vigor-c-progress-pink-blue);

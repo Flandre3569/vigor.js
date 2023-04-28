@@ -40,6 +40,7 @@ export interface ThemeConfig {
 export interface UserConfig {
   title?: string;
   description?: string;
+  icon?: string;
   themeConfig?: ThemeConfig;
   vite?: ViteUserConfig;
 }
