@@ -21,6 +21,8 @@ const runDirect = (bin: string, args: string[]) => {
 // 高亮现在正在执行的步骤
 const step = (msg) => console.log(chalk.cyan(msg));
 
+const tip = (msg) => console.log(chalk.blue(msg));
+
 export async function deploy() {
   // 整个部署过程：(采用的方式是github-vercel)
   // 需要注册一个github账号，然后通过Github账号登录vercel
@@ -118,6 +120,8 @@ export async function deploy() {
 
   step("\nUploading project to vercel...");
   await runDirect("vc", []);
+
+  tip("\n🥳Deployed successfully. Congratulations!");
 }
 
 deploy().catch((e) => {
