@@ -3,6 +3,8 @@
 import chalk from "chalk";
 import execa from "execa";
 import prompts from "prompts";
+import fs from "fs-extra";
+import path from "path";
 
 import minimist from "minimist";
 
@@ -21,6 +23,8 @@ const pushGithub = async (msg: string) => {
   await runDirect("git", ["commit", "-m", msg]);
   await runDirect("git", ["push"]);
 };
+
+const BuildPath = path.resolve("/docs/build");
 
 export async function publish() {
   // 1. 判断是否已经将github和vercel连接起来了
@@ -47,6 +51,7 @@ export async function publish() {
   if (!ifLink) return;
 
   if (ifLink === "true") {
+    if (fs.pathExistsSync(BuildPath)) await fs.remove(BuildPath);
     await runDirect("npm", ["run", "build"]);
     step("\nUpdating your github...");
     const { message } = await prompts({
@@ -57,6 +62,7 @@ export async function publish() {
     if (!message) return;
     await pushGithub(message);
   } else {
+    if (fs.pathExistsSync(BuildPath)) await fs.remove(BuildPath);
     await runDirect("npm", ["run", "build"]);
     step("\nUpdating your github...");
     const { message } = await prompts({
